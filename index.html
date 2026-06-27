@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mercury Device Farm — Pricing</title>
-  <link rel="icon" href="ui/public/favicon.ico" />
+  <title>Mercury Device Farm — Android & iOS Gerçek Cihaz Laboratuvarı</title>
+  <meta name="description" content="Mercury Device Farm: Android ve iOS için tarayıcı tabanlı gerçek cihaz laboratuvarı. Tanıtım, dokümantasyon ve GitHub kaynaklarına buradan erişin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     /* ───────── Reset & Base ───────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,8 +15,8 @@
     body {
       font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #1a1a2e;
-      background: #f6f9ff;
-      line-height: 1.6;
+      background: var(--bg);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
     a { text-decoration: none; color: inherit; }
@@ -28,7 +31,6 @@
       --cyan: #00D2FF;
       --bg: #f6f9ff;
       --white: #ffffff;
-      --gray-50: #f8fafc;
       --gray-100: #f1f5f9;
       --gray-200: #e2e8f0;
       --gray-300: #cbd5e1;
@@ -42,12 +44,12 @@
       --shadow-lg: 0 12px 48px rgba(0,60,130,.12);
       --shadow-xl: 0 24px 64px rgba(0,60,130,.18);
       --transition: .25s cubic-bezier(.4,0,.2,1);
-      --max-w: 1200px;
+      --max-w: 1160px;
     }
 
     /* ───────── Utilities ───────── */
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-    .section { padding: 100px 0; }
+    .section { padding: 96px 0; }
     .text-center { text-align: center; }
     .badge {
       display: inline-block;
@@ -58,768 +60,672 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 16px;
+      border-radius: 999px;
     }
-    .section-title {
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    h2.section-title {
       font-size: clamp(28px, 4vw, 42px);
       font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
       color: var(--gray-900);
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
     }
-    .section-subtitle {
-      font-size: 18px;
-      color: var(--gray-500);
+    .section-sub {
+      margin: 16px auto 0;
       max-width: 640px;
-      margin: 0 auto 56px;
+      color: var(--gray-500);
+      font-size: 18px;
     }
 
-    /* ───────── Navigation ───────── */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,.85);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border-bottom: 1px solid rgba(0,119,255,.06);
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(0,119,255,.32);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,119,255,.42); }
+    .btn-ghost {
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(6px);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .btn-dark {
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* ───────── Header ───────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246,249,255,.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -.01em;
+      color: var(--gray-900);
+    }
+    .logo-mark {
+      width: 38px; height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid; place-items: center;
+      color: #fff; font-weight: 900; font-size: 20px;
+      box-shadow: 0 6px 16px rgba(0,119,255,.35);
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a.link {
+      font-weight: 600; font-size: 15px; color: var(--gray-700);
       transition: var(--transition);
     }
-    .navbar-inner {
-      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    .nav-links a.link:hover { color: var(--blue); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gray-900); color: #fff;
+      font-weight: 700; font-size: 14px;
+      padding: 10px 18px; border-radius: 999px;
+      transition: var(--transition);
     }
-    .navbar-logo { display: flex; align-items: center; gap: 6px; }
-    .navbar-logo svg { height: 34px; width: auto; }
-    .navbar-links { display: flex; gap: 32px; align-items: center; }
-    .navbar-links a {
-      font-size: 14px; font-weight: 600; color: var(--gray-700);
-      transition: var(--transition); position: relative;
-    }
-    .navbar-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--blue);
-      transition: var(--transition); border-radius: 2px;
-    }
-    .navbar-links a:hover { color: var(--blue); }
-    .navbar-links a:hover::after { width: 100%; }
-    .navbar-right { display: flex; align-items: center; gap: 16px; }
-    .navbar-cta {
-      background: var(--blue); color: var(--white) !important;
-      padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
-      transition: var(--transition); border: none; cursor: pointer;
-    }
-    .navbar-cta:hover { background: var(--blue-mid); transform: translateY(-1px); box-shadow: var(--shadow); }
-
-    /* ───────── Language Switcher ───────── */
-    .lang-switch {
-      display: flex; align-items: center; background: var(--gray-100);
-      border-radius: 8px; padding: 3px; gap: 2px;
-    }
-    .lang-switch button {
-      padding: 5px 12px; border: none; background: transparent;
-      font-size: 12px; font-weight: 700; color: var(--gray-500);
-      border-radius: 6px; cursor: pointer; transition: var(--transition); letter-spacing: 0.5px;
-    }
-    .lang-switch button.active {
-      background: var(--white); color: var(--gray-900); box-shadow: var(--shadow-sm);
-    }
-    .lang-switch button:hover:not(.active) { color: var(--blue); }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .nav-cta svg { width: 17px; height: 17px; }
 
     /* ───────── Hero ───────── */
     .hero {
-      padding: 160px 0 100px;
-      background: linear-gradient(165deg, #e8f2ff 0%, var(--bg) 40%, #fff 100%);
-      position: relative; overflow: hidden;
+      position: relative;
+      background: radial-gradient(120% 120% at 50% 0%, #003a8c 0%, var(--blue-dark) 55%, #001230 100%);
+      color: #fff;
+      padding: 120px 0 130px;
+      overflow: hidden;
     }
     .hero::before {
-      content: ''; position: absolute; top: -180px; right: -120px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,210,255,.12) 0%, transparent 70%); border-radius: 50%;
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(0,210,255,.18), transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(0,119,255,.22), transparent 45%);
+      pointer-events: none;
     }
-    .hero::after {
-      content: ''; position: absolute; bottom: -100px; left: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,119,255,.08) 0%, transparent 70%); border-radius: 50%;
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+      pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,119,255,.08); border: 1px solid rgba(0,119,255,.15);
-      color: var(--blue); font-size: 13px; font-weight: 600;
-      padding: 8px 20px; border-radius: 50px; margin-bottom: 28px;
-    }
-    .hero-badge .dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.3); } }
+    .hero-inner { position: relative; max-width: 820px; margin: 0 auto; text-align: center; }
     .hero h1 {
-      font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; line-height: 1.1;
-      letter-spacing: -1px; color: var(--gray-900); margin-bottom: 24px;
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin: 22px 0 0;
     }
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--cyan), #7fd4ff);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .hero p { font-size: 19px; color: var(--gray-500); max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
-    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px;
-      border-radius: 10px; font-size: 15px; font-weight: 700;
-      transition: var(--transition); cursor: pointer; border: none;
+    .hero p.lead {
+      font-size: clamp(17px, 2.2vw, 21px);
+      color: rgba(255,255,255,.82);
+      margin: 22px auto 0;
+      max-width: 620px;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--blue) 0%, #0066dd 100%);
-      color: var(--white); box-shadow: 0 4px 16px rgba(0,119,255,.3);
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }
+    .platform-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+    .platform-tags span {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.9);
+      font-size: 13px; font-weight: 600;
+      padding: 8px 16px; border-radius: 999px;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,119,255,.35); }
-    .btn-outline { background: var(--white); color: var(--gray-700); border: 2px solid var(--gray-200); }
-    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
-    .hero-stats {
-      display: flex; justify-content: center; gap: 48px; margin-top: 64px;
-      padding-top: 48px; border-top: 1px solid var(--gray-200);
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat .number { font-size: 32px; font-weight: 900; color: var(--blue); display: block; }
-    .hero-stat .label { font-size: 13px; color: var(--gray-500); font-weight: 500; }
+    .platform-tags span::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
 
-    /* ───────── Features Grid ───────── */
-    .features { background: var(--white); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .feature-card {
-      padding: 36px; background: var(--gray-50); border: 1px solid var(--gray-100);
-      border-radius: var(--radius); transition: var(--transition);
+    /* ───────── Stats ───────── */
+    .stats {
+      margin-top: -64px;
+      position: relative; z-index: 5;
     }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(0,119,255,.15); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .stat { text-align: center; }
+    .stat .num {
+      font-size: 34px; font-weight: 900;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -.02em;
+    }
+    .stat .label { color: var(--gray-500); font-size: 14px; font-weight: 600; margin-top: 4px; }
+
+    /* ───────── Features ───────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
     .feature-icon {
       width: 52px; height: 52px;
-      background: linear-gradient(135deg, rgba(0,119,255,.1), rgba(0,210,255,.08));
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px; font-size: 24px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(0,119,255,.12), rgba(0,210,255,.12));
+      color: var(--blue);
+      margin-bottom: 20px;
     }
-    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--gray-900); }
-    .feature-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
-
-    /* ───────── Pricing ───────── */
-    .pricing { background: var(--bg); position: relative; }
-    .pricing::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gray-200), transparent);
-    }
-    .pricing-toggle { display: inline-flex; background: var(--gray-100); border-radius: 10px; padding: 4px; margin-bottom: 56px; }
-    .pricing-toggle button {
-      padding: 10px 28px; border: none; background: transparent; font-size: 14px;
-      font-weight: 600; color: var(--gray-500); border-radius: 8px; cursor: pointer; transition: var(--transition);
-    }
-    .pricing-toggle button.active { background: var(--white); color: var(--gray-900); box-shadow: var(--shadow-sm); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: start; }
-    .pricing-card {
-      background: var(--white); border-radius: var(--radius); padding: 44px 36px;
-      border: 1px solid var(--gray-200); position: relative; transition: var(--transition);
-    }
-    .pricing-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
-    .pricing-card.popular { border-color: var(--blue); box-shadow: var(--shadow-lg), 0 0 0 1px var(--blue); }
-    .popular-badge {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--blue), var(--cyan)); color: var(--white);
-      font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      padding: 6px 24px; border-radius: 50px; white-space: nowrap;
-    }
-    .pricing-card .plan-icon {
-      width: 56px; height: 56px; border-radius: 16px; display: flex;
-      align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px;
-    }
-    .pricing-card.starter .plan-icon { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
-    .pricing-card.popular .plan-icon { background: linear-gradient(135deg, #dbeafe, #93c5fd); }
-    .pricing-card.enterprise .plan-icon { background: linear-gradient(135deg, #ede9fe, #c4b5fd); }
-    .pricing-card .plan-name { font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
-    .pricing-card .plan-desc { font-size: 14px; color: var(--gray-500); margin-bottom: 28px; }
-    .pricing-card .price { font-size: 48px; font-weight: 900; color: var(--gray-900); line-height: 1; margin-bottom: 4px; }
-    .pricing-card .price .currency { font-size: 22px; font-weight: 700; vertical-align: super; margin-right: 2px; color: var(--gray-500); }
-    .pricing-card .price .period { font-size: 15px; font-weight: 500; color: var(--gray-500); }
-    .pricing-card .price-note { font-size: 13px; color: var(--gray-500); margin-bottom: 32px; }
-    .pricing-card .divider { height: 1px; background: var(--gray-200); margin: 0 0 28px; }
-    .pricing-card .features-list { margin-bottom: 36px; }
-    .pricing-card .features-list li { display: flex; align-items: start; gap: 12px; font-size: 14px; color: var(--gray-700); padding: 8px 0; }
-    .pricing-card .features-list li .check {
-      width: 20px; height: 20px; min-width: 20px; background: rgba(0,119,255,.1);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px;
-    }
-    .pricing-card .features-list li .check svg { width: 12px; height: 12px; }
-    .pricing-card .plan-btn {
-      display: block; width: 100%; padding: 14px; border-radius: 10px; font-size: 15px;
-      font-weight: 700; text-align: center; transition: var(--transition); cursor: pointer; border: none;
-    }
-    .pricing-card .plan-btn.btn-fill {
-      background: linear-gradient(135deg, var(--blue), #0066dd); color: var(--white);
-      box-shadow: 0 4px 16px rgba(0,119,255,.25);
-    }
-    .pricing-card .plan-btn.btn-fill:hover { box-shadow: 0 8px 28px rgba(0,119,255,.35); transform: translateY(-2px); }
-    .pricing-card .plan-btn.btn-ghost { background: var(--gray-50); color: var(--gray-700); border: 1px solid var(--gray-200); }
-    .pricing-card .plan-btn.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .feature-icon svg { width: 26px; height: 26px; }
+    .feature-card h3 { font-size: 19px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+    .feature-card p { color: var(--gray-500); font-size: 15px; }
 
     /* ───────── Screenshots ───────── */
-    .screenshots { background: var(--white); }
-    .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 28px; }
-    .screenshot-item { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-200); background: var(--white); transition: var(--transition); box-shadow: var(--shadow-sm); }
-    .screenshot-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
-    .browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--gray-100); border-bottom: 1px solid var(--gray-200); }
-    .browser-dots { display: flex; gap: 6px; }
-    .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
-    .browser-dots span:nth-child(1) { background: #ff5f57; }
-    .browser-dots span:nth-child(2) { background: #ffbd2e; }
-    .browser-dots span:nth-child(3) { background: #28c840; }
-    .browser-url { flex: 1; margin-left: 8px; background: var(--white); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: var(--gray-500); font-family: 'SF Mono','Fira Code',monospace; border: 1px solid var(--gray-200); }
-    .mockup-screen { position: relative; height: 260px; overflow: hidden; }
-    .screen-login { background: linear-gradient(135deg, #0a1628, #162544); }
-    .screen-devices { background: linear-gradient(135deg, #f0f4ff, #e8f0fe); }
-    .screen-android { background: linear-gradient(135deg, #0f1923, #1a2d42); }
-    .screen-ios { background: linear-gradient(135deg, #111827, #1e293b); }
-    .screen-settings { background: linear-gradient(135deg, #f8fafc, #f1f5f9); }
-    .screen-logo { background: linear-gradient(135deg, #002159, #003a8c 50%, #0077FF); }
-    .mock-login { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 220px; background: rgba(255,255,255,.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 24px; }
-    .mock-login-logo { width: 40px; height: 40px; background: var(--blue); border-radius: 10px; margin: 0 auto 14px; position: relative; }
-    .mock-login-logo::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 18px; height: 18px; background: rgba(255,255,255,.3); border-radius: 50%; }
-    .mock-input { width: 100%; height: 26px; background: rgba(255,255,255,.08); border-radius: 5px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,.1); }
-    .mock-btn-login { width: 100%; height: 28px; background: var(--blue); border-radius: 5px; margin-top: 4px; }
-    .mock-devices-wrap { padding: 20px; display: flex; flex-direction: column; height: 100%; }
-    .mock-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .mock-topbar-left { display: flex; align-items: center; gap: 8px; }
-    .mock-topbar-logo { width: 28px; height: 28px; background: var(--blue); border-radius: 7px; }
-    .mock-topbar-text { width: 80px; height: 10px; background: var(--blue-dark); border-radius: 4px; opacity: .6; }
-    .mock-search { width: 140px; height: 26px; background: var(--white); border-radius: 6px; border: 1px solid var(--gray-200); }
-    .mock-device-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; flex: 1; }
-    .mock-device-card { background: var(--white); border-radius: 8px; padding: 10px; border: 1px solid var(--gray-200); display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .mock-device-phone { width: 22px; height: 38px; border: 2px solid var(--gray-300); border-radius: 4px; position: relative; }
-    .mock-device-phone::after { content: ''; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--gray-300); }
-    .mock-device-name { width: 100%; height: 6px; background: var(--gray-200); border-radius: 3px; }
-    .mock-device-status { width: 8px; height: 8px; border-radius: 50%; }
-    .mock-device-status.online { background: #28c840; }
-    .mock-device-status.busy { background: #ffbd2e; }
-    .mock-device-status.offline { background: var(--gray-300); }
-    .mock-remote-wrap { display: flex; height: 100%; padding: 16px; gap: 16px; }
-    .mock-phone-frame { width: 120px; flex-shrink: 0; background: #000; border-radius: 16px; padding: 8px; display: flex; flex-direction: column; align-items: center; }
-    .mock-phone-notch { width: 36px; height: 5px; background: #222; border-radius: 3px; margin-bottom: 6px; }
-    .mock-phone-screen { flex: 1; width: 100%; border-radius: 8px; overflow: hidden; }
-    .mock-phone-screen.android-screen { background: linear-gradient(180deg, #1a73e8, #4285f4 30%, #e8f0fe 30%, #e8f0fe); }
-    .mock-phone-screen.ios-screen { background: linear-gradient(180deg, #f2f2f7, #f2f2f7 20%, #fff 20%, #fff); }
-    .mock-phone-home { width: 24px; height: 3px; background: #555; border-radius: 2px; margin-top: 6px; }
-    .mock-controls { flex: 1; display: flex; flex-direction: column; gap: 10px; }
-    .mock-controls-row { display: flex; gap: 8px; }
-    .mock-ctrl-btn { flex: 1; height: 28px; background: rgba(255,255,255,.08); border-radius: 6px; border: 1px solid rgba(255,255,255,.12); }
-    .mock-info-panel { flex: 1; background: rgba(255,255,255,.05); border-radius: 8px; border: 1px solid rgba(255,255,255,.1); padding: 12px; }
-    .mock-info-line { height: 6px; background: rgba(255,255,255,.12); border-radius: 3px; margin-bottom: 8px; }
-    .mock-info-line:nth-child(2) { width: 80%; } .mock-info-line:nth-child(3) { width: 60%; } .mock-info-line:nth-child(4) { width: 90%; }
-    .mock-settings-wrap { padding: 20px; display: flex; gap: 16px; height: 100%; }
-    .mock-sidebar { width: 120px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
-    .mock-sidebar-item { height: 10px; background: var(--gray-200); border-radius: 4px; }
-    .mock-sidebar-item.active { background: var(--blue); opacity: .7; }
-    .mock-settings-main { flex: 1; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 16px; }
-    .mock-form-group { margin-bottom: 14px; }
-    .mock-form-label { height: 7px; width: 60px; background: var(--gray-300); border-radius: 3px; margin-bottom: 6px; }
-    .mock-form-input { height: 24px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 5px; }
-    .mock-form-toggle { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .mock-toggle-track { width: 28px; height: 15px; background: var(--blue); border-radius: 10px; position: relative; }
-    .mock-toggle-track::after { content: ''; position: absolute; top: 2px; right: 2px; width: 11px; height: 11px; background: white; border-radius: 50%; }
-    .mock-toggle-label { height: 7px; width: 100px; background: var(--gray-300); border-radius: 3px; }
-    .mock-logo-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px; }
-    .mock-logo-planet { position: relative; width: 80px; height: 80px; }
-    .mock-logo-planet .p-core { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 56px; height: 56px; background: var(--blue); border-radius: 50%; }
-    .mock-logo-planet .p-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-25deg); width: 80px; height: 28px; border: 3px solid var(--cyan); border-radius: 50%; }
-    .mock-logo-planet .p-inner { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 30px; height: 30px; background: var(--blue-mid); border-radius: 50%; }
-    .mock-logo-planet .p-satellite { position: absolute; top: 0; right: -4px; width: 14px; height: 14px; background: var(--cyan); border-radius: 50%; }
-    .mock-logo-text { font-family: Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 900; color: white; letter-spacing: 1px; }
-    .mock-logo-subtitle { display: inline-block; background: var(--blue); color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; padding: 6px 20px; border-radius: 6px; letter-spacing: .5px; }
-    .screenshot-caption { padding: 16px 20px; font-size: 14px; font-weight: 600; color: var(--gray-700); display: flex; align-items: center; gap: 10px; background: var(--white); border-top: 1px solid var(--gray-100); }
-    .screenshot-caption .dot-indicator { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+    .shots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .shot {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .shot:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+    .shot img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--gray-100); }
+    .shot .cap {
+      padding: 16px 20px;
+      font-weight: 700; font-size: 15px; color: var(--gray-900);
+      display: flex; align-items: center; gap: 9px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .shot .cap .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); }
 
-    /* ───────── Comparison Table ───────── */
-    .comparison { background: var(--bg); }
-    .comparison-table-wrapper { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--gray-200); background: var(--white); }
-    .comparison-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-    .comparison-table thead th { padding: 20px 24px; font-size: 14px; font-weight: 700; color: var(--gray-900); text-align: left; border-bottom: 2px solid var(--gray-200); background: var(--gray-50); }
-    .comparison-table thead th:first-child { width: 40%; }
-    .comparison-table thead th:not(:first-child) { text-align: center; }
-    .comparison-table thead th.highlight-col { background: rgba(0,119,255,.06); color: var(--blue); }
-    .comparison-table tbody td { padding: 16px 24px; font-size: 14px; color: var(--gray-700); border-bottom: 1px solid var(--gray-100); }
-    .comparison-table tbody td:not(:first-child) { text-align: center; }
-    .comparison-table tbody td.highlight-col { background: rgba(0,119,255,.03); }
-    .comparison-table tbody tr:last-child td { border-bottom: none; }
-    .table-check { color: var(--blue); font-weight: 700; font-size: 18px; }
-    .table-cross { color: var(--gray-300); font-size: 18px; }
-    .table-text { font-weight: 600; color: var(--gray-900); }
+    /* ───────── Demo Video ───────── */
+    .video-wrap {
+      position: relative;
+      max-width: 900px;
+      margin: 48px auto 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+    .video-wrap iframe { width: 100%; height: 100%; border: 0; }
 
-    /* ───────── FAQ ───────── */
-    .faq { background: var(--white); }
-    .faq-list { max-width: 740px; margin: 0 auto; }
-    .faq-item { border: 1px solid var(--gray-200); border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; transition: var(--transition); }
-    .faq-item:hover { border-color: rgba(0,119,255,.2); }
-    .faq-question { width: 100%; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; background: none; border: none; cursor: pointer; font-size: 15px; font-weight: 600; color: var(--gray-900); text-align: left; }
-    .faq-question .arrow { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; transition: var(--transition); color: var(--gray-500); }
-    .faq-item.open .faq-question .arrow { transform: rotate(180deg); color: var(--blue); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-    .faq-answer-inner { padding: 0 24px 20px; font-size: 14px; color: var(--gray-500); line-height: 1.7; }
-    .faq-item.open .faq-answer { max-height: 300px; }
+    /* ───────── Docs ───────── */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 56px;
+    }
+    .doc-card {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 20px 22px;
+      transition: var(--transition);
+    }
+    .doc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
+    .doc-card .d-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(0,119,255,.1), rgba(0,210,255,.12));
+      color: var(--blue);
+      display: grid; place-items: center;
+    }
+    .doc-card .d-icon svg { width: 20px; height: 20px; }
+    .doc-card h4 { font-size: 16px; font-weight: 700; color: var(--gray-900); display: flex; align-items: center; gap: 8px; }
+    .doc-card p { color: var(--gray-500); font-size: 13.5px; margin-top: 3px; }
+    .doc-card .tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .5px;
+      background: var(--gray-100); color: var(--gray-500);
+      padding: 2px 7px; border-radius: 6px;
+    }
+
+    /* ───────── Quick Start ───────── */
+    .qs-wrap {
+      background: linear-gradient(135deg, var(--blue-dark), #001230);
+      border-radius: 24px;
+      padding: 56px;
+      margin-top: 56px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .qs-wrap h3 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
+    .qs-wrap p { color: rgba(255,255,255,.78); margin-top: 14px; font-size: 16px; }
+    .qs-list { margin-top: 26px; display: grid; gap: 14px; }
+    .qs-list li { display: flex; gap: 13px; align-items: flex-start; color: rgba(255,255,255,.9); font-size: 15px; }
+    .qs-list .n {
+      flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 8px;
+      background: rgba(0,210,255,.18); color: var(--cyan);
+      display: grid; place-items: center; font-weight: 800; font-size: 13px;
+    }
+    .qs-list code { background: rgba(255,255,255,.1); padding: 2px 7px; border-radius: 6px; font-size: 13px; }
+    .code-block {
+      background: #0a1429;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      padding: 24px;
+      font-family: 'SF Mono', 'Fira Code', Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.9;
+      overflow-x: auto;
+      white-space: pre;
+      color: #e2e8f0;
+      text-align: left;
+    }
+    .code-block .c-comment { color: #4f6b9a; }
+    .code-block .c-cmd { color: #7fd4ff; }
 
     /* ───────── CTA ───────── */
-    .cta-section { background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid) 50%, var(--blue)); color: var(--white); position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,210,255,.15), transparent 70%); border-radius: 50%; }
-    .cta-section::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,.05), transparent 70%); border-radius: 50%; }
-    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
-    .cta-section h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; margin-bottom: 18px; letter-spacing: -0.5px; }
-    .cta-section p { font-size: 17px; opacity: .85; margin-bottom: 40px; line-height: 1.7; }
-    .cta-email-card { background: rgba(255,255,255,.12); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius); padding: 36px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .cta-email-icon { width: 64px; height: 64px; background: rgba(255,255,255,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; }
-    .cta-email-card .email-label { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; opacity: .7; }
-    .cta-email-card .email-address { font-size: 22px; font-weight: 800; letter-spacing: 0.3px; }
-    .cta-email-card .email-address a { color: var(--white); border-bottom: 2px solid rgba(255,255,255,.3); padding-bottom: 2px; transition: var(--transition); }
-    .cta-email-card .email-address a:hover { border-color: var(--cyan); }
-    .cta-benefits { display: flex; justify-content: center; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
-    .cta-benefit { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; opacity: .85; }
-    .cta-benefit svg { width: 18px; height: 18px; opacity: .8; }
+    .cta-band {
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 24px;
+      padding: 64px 32px;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -.02em; color: var(--gray-900); }
+    .cta-band p { color: var(--gray-500); font-size: 18px; margin: 14px auto 0; max-width: 520px; }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
 
     /* ───────── Footer ───────── */
-    .footer { background: var(--gray-900); color: rgba(255,255,255,.6); padding: 60px 0 40px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 40px; margin-bottom: 48px; }
-    .footer-brand p { font-size: 14px; max-width: 300px; margin-top: 16px; line-height: 1.6; }
-    .footer-links-group h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.9); margin-bottom: 16px; }
-    .footer-links-group a { display: block; font-size: 14px; padding: 4px 0; transition: var(--transition); }
-    .footer-links-group a:hover { color: var(--cyan); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; }
-    .footer-logo svg { height: 30px; }
-    .footer-logo svg text { fill: rgba(255,255,255,.9) !important; }
+    footer {
+      background: var(--gray-900);
+      color: rgba(255,255,255,.7);
+      padding: 56px 0 32px;
+      margin-top: 96px;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 32px;
+      padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand { max-width: 320px; }
+    .footer-brand .logo { color: #fff; margin-bottom: 14px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; }
+    .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+    .footer-col h5 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: .3px; }
+    .footer-col a { display: block; font-size: 14px; margin-bottom: 10px; transition: var(--transition); }
+    .footer-col a:hover { color: var(--cyan); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      padding-top: 28px; font-size: 13px; color: rgba(255,255,255,.5);
+    }
 
     /* ───────── Responsive ───────── */
-    @media (max-width: 768px) {
-      .navbar-links { display: none; }
-      .hero-stats { flex-direction: column; gap: 24px; }
-      .screenshots-grid { grid-template-columns: 1fr; min-width: 0; }
-      .screenshots-grid .screenshot-item { min-width: 0; }
-      .mock-device-grid { grid-template-columns: repeat(3,1fr) !important; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-      .cta-benefits { flex-direction: column; align-items: center; }
-      .footer-top { flex-direction: column; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+    @media (max-width: 920px) {
+      .features-grid, .docs-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .qs-wrap { grid-template-columns: 1fr; padding: 40px 28px; }
+      .nav-links .link { display: none; }
     }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 30px; }
-      .hero-actions { flex-direction: column; }
-      .btn { width: 100%; justify-content: center; }
-      .pricing-card { padding: 32px 24px; }
+    @media (max-width: 600px) {
+      .section { padding: 64px 0; }
+      .features-grid, .docs-grid, .shots-grid, .stats-grid { grid-template-columns: 1fr; }
+      .qs-wrap { padding: 32px 22px; }
+      .cta-band { padding: 44px 22px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
-<nav class="navbar">
-  <div class="navbar-inner">
-    <a href="#" class="navbar-logo">
-      <svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="ng" x1="42" y1="0" x2="114" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#002159"/><stop offset="1" stop-color="#1A1A1A"/></linearGradient></defs>
-        <circle cx="20" cy="20" r="14" fill="#0077FF"/><ellipse cx="20" cy="20" rx="18" ry="6" transform="rotate(-25 18 20)" fill="none" stroke="#00D2FF" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="8" fill="#004199"/><circle cx="38" cy="8" r="3.5" fill="#00D2FF"/>
-        <text x="45" y="27" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="800" fill="url(#ng)" letter-spacing="0.5">Mercury</text>
-        <rect x="130" y="6" width="95" height="28" rx="6" fill="#0077FF"/><text x="177" y="25" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle" letter-spacing="0.2">Device Farm</text>
-      </svg>
-    </a>
-    <div class="navbar-links">
-      <a href="#features" data-i18n="nav_features">Features</a>
-      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
-      <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
-      <a href="#comparison" data-i18n="nav_comparison">Comparison</a>
-      <a href="#faq" data-i18n="nav_faq">FAQ</a>
-    </div>
-    <div class="navbar-right">
-      <div class="lang-switch">
-        <button class="active" onclick="setLang('en')">EN</button>
-        <button onclick="setLang('tr')">TR</button>
-      </div>
-      <a href="#contact" class="navbar-cta" data-i18n="nav_contact">Contact Us</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="container hero-content text-center">
-    <div class="hero-badge"><span class="dot"></span><span data-i18n="hero_badge">New: iOS 18 &amp; Android 15 Support</span></div>
-    <h1 data-i18n-html="hero_title">Real Device<br><span>Test Automation</span></h1>
-    <p data-i18n="hero_desc">Manage your Android and iOS devices from the browser with Mercury Device Farm. Cloud infrastructure, parallel testing, Appium integration and more.</p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn btn-primary">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        <span data-i18n="hero_btn_plans">View Plans</span>
+  <!-- ───────── Header ───────── -->
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo">
+        <span class="logo-mark">M</span>
+        Mercury Device Farm
       </a>
-      <a href="#contact" class="btn btn-outline">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span data-i18n="hero_btn_quote">Get a Quote</span>
-      </a>
+      <nav class="nav-links">
+        <a href="#features" class="link">Özellikler</a>
+        <a href="#screens" class="link">Ekranlar</a>
+        <a href="#docs" class="link">Dokümanlar</a>
+        <a href="#start" class="link">Kurulum</a>
+        <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="nav-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+          GitHub
+        </a>
+      </nav>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="number">500+</span><span class="label" data-i18n="stat_devices">Concurrent Devices</span></div>
-      <div class="hero-stat"><span class="number">99.9%</span><span class="label" data-i18n="stat_uptime">Uptime SLA</span></div>
-      <div class="hero-stat"><span class="number">50ms</span><span class="label" data-i18n="stat_latency">Avg Latency</span></div>
-      <div class="hero-stat"><span class="number">24/7</span><span class="label" data-i18n="stat_support">Technical Support</span></div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- ─── FEATURES ─── -->
-<section id="features" class="section features">
-  <div class="container text-center">
-    <span class="badge" data-i18n="badge_features">Features</span>
-    <h2 class="section-title" data-i18n="features_title">Everything in One Platform</h2>
-    <p class="section-subtitle" data-i18n="features_subtitle">Android and iOS device management, automation infrastructure and remote control — all in Mercury.</p>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">📱</div><h3 data-i18n="f1_title">Real Device Access</h3><p data-i18n="f1_desc">Instant access to physical Android and iOS devices via the browser. Real hardware, not emulators.</p></div>
-      <div class="feature-card"><div class="feature-icon">🔄</div><h3 data-i18n="f2_title">Parallel Test Execution</h3><p data-i18n="f2_desc">Run tests simultaneously on hundreds of devices. Full automation with CI/CD pipeline integration.</p></div>
-      <div class="feature-card"><div class="feature-icon">🎯</div><h3 data-i18n="f3_title">Appium Integration</h3><p data-i18n="f3_desc">Native Appium support — run your existing test frameworks without any changes.</p></div>
-      <div class="feature-card"><div class="feature-icon">🖥️</div><h3 data-i18n="f4_title">Remote Control</h3><p data-i18n="f4_desc">Real-time screen sharing, touch control and device interaction — with low latency.</p></div>
-      <div class="feature-card"><div class="feature-icon">📊</div><h3 data-i18n="f5_title">Detailed Reporting</h3><p data-i18n="f5_desc">Test results, performance metrics and device usage analytics in a single dashboard.</p></div>
-      <div class="feature-card"><div class="feature-icon">🔐</div><h3 data-i18n="f6_title">Enterprise Security</h3><p data-i18n="f6_desc">LDAP, OAuth2, OpenID and SAML2 support. Role-based access control and audit logs.</p></div>
-      <div class="feature-card"><div class="feature-icon">🐳</div><h3 data-i18n="f7_title">Easy Docker Setup</h3><p data-i18n="f7_desc">Single-command setup with Docker Compose. Quick start with macOS and Linux support.</p></div>
-      <div class="feature-card"><div class="feature-icon">📺</div><h3 data-i18n="f8_title">Smart TV Support</h3><p data-i18n="f8_desc">Remote control and test automation for Samsung Tizen-based Smart TVs.</p></div>
-      <div class="feature-card"><div class="feature-icon">⚡</div><h3 data-i18n="f9_title">REST API</h3><p data-i18n="f9_desc">Comprehensive REST API for device management, test execution and result querying.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PRICING ─── -->
-<section id="pricing" class="section pricing">
-  <div class="container text-center">
-    <span class="badge" data-i18n="badge_pricing">Pricing</span>
-    <h2 class="section-title" data-i18n="pricing_title">The Right Plan for Your Needs</h2>
-    <p class="section-subtitle" data-i18n="pricing_subtitle">From small teams to large enterprises — flexibility and transparent pricing.</p>
-    <div class="pricing-toggle">
-      <button class="active" data-mode="monthly" onclick="togglePricing('monthly',this)" data-i18n="toggle_monthly">Monthly</button>
-      <button data-mode="annual" onclick="togglePricing('annual',this)"><span data-i18n="toggle_annual">Annual</span> <span style="color:var(--blue);font-size:12px;font-weight:700;">-20%</span></button>
-    </div>
-    <div class="pricing-grid">
-      <!-- Starter -->
-      <div class="pricing-card starter">
-        <div class="plan-icon">🚀</div>
-        <div class="plan-name">Starter</div>
-        <div class="plan-desc" data-i18n="starter_desc">For small teams and individual developers</div>
-        <div class="price" data-monthly="299" data-annual="239"><span class="currency">$</span>299<span class="period" data-i18n="per_month"> /mo</span></div>
-        <div class="price-note" data-i18n="starter_note">$239/mo with annual billing</div>
-        <div class="divider"></div>
-        <ul class="features-list">
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s1">5 concurrent device connections</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s2">Android &amp; iOS support</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s3">Remote control &amp; screen sharing</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s4">Appium integration</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s5">Email support</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="s6">REST API access</span></li>
-        </ul>
-        <a href="mailto:erdncyz@gmail.com?subject=Mercury%20Starter%20Plan%20Quote&body=Hello%2C%0AI%20would%20like%20info%20about%20the%20Starter%20plan.%0ACompany%3A%20%0AUsers%3A%20" class="plan-btn btn-ghost" data-i18n="btn_quote">Get a Quote</a>
+  <!-- ───────── Hero ───────── -->
+  <section class="hero" id="top">
+    <div class="hero-grid"></div>
+    <div class="container hero-inner">
+      <span class="badge">macOS • Android • iOS • Smart TV</span>
+      <h1>Tarayıcı tabanlı <span class="grad">gerçek cihaz</span> laboratuvarı</h1>
+      <p class="lead">
+        Mercury Device Farm, Android ve iOS cihazlarını tarayıcı üzerinden uzaktan kontrol etmenizi,
+        test etmenizi ve otomasyona bağlamanızı sağlayan açık kaynaklı bir cihaz çiftliğidir.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+          GitHub'da Görüntüle
+        </a>
+        <a href="#docs" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Dokümanları Keşfet
+        </a>
       </div>
-      <!-- Professional -->
-      <div class="pricing-card popular">
-        <div class="popular-badge" data-i18n="most_popular">Most Popular</div>
-        <div class="plan-icon">⚡</div>
-        <div class="plan-name">Professional</div>
-        <div class="plan-desc" data-i18n="pro_desc">For growing teams and mid-size projects</div>
-        <div class="price" data-monthly="799" data-annual="639"><span class="currency">$</span>799<span class="period" data-i18n="per_month"> /mo</span></div>
-        <div class="price-note" data-i18n="pro_note">$639/mo with annual billing</div>
-        <div class="divider"></div>
-        <ul class="features-list">
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p1"><strong>25</strong> concurrent device connections</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p2">Everything in Starter plan</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p3">Parallel test execution</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p4">CI/CD pipeline integration</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p5">Advanced reporting &amp; analytics</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p6">Smart TV (Tizen) support</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="p7">Priority technical support</span></li>
-        </ul>
-        <a href="mailto:erdncyz@gmail.com?subject=Mercury%20Professional%20Plan%20Quote&body=Hello%2C%0AI%20would%20like%20info%20about%20the%20Professional%20plan.%0ACompany%3A%20%0AUsers%3A%20%0ADevices%3A%20" class="plan-btn btn-fill" data-i18n="btn_quote">Get a Quote</a>
-      </div>
-      <!-- Enterprise -->
-      <div class="pricing-card enterprise">
-        <div class="plan-icon">🏢</div>
-        <div class="plan-name">Enterprise</div>
-        <div class="plan-desc" data-i18n="ent_desc">For large organizations and custom needs</div>
-        <div class="price"><span style="font-size:36px;" data-i18n="custom_price">Custom Price</span></div>
-        <div class="price-note" data-i18n="ent_note">Get a tailored quote for your needs</div>
-        <div class="divider"></div>
-        <ul class="features-list">
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e1"><strong>Unlimited</strong> device connections</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e2">Everything in Professional plan</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e3">On-premise / Private Cloud deployment</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>LDAP / OAuth2 / SAML2 / OpenID</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e5">Custom SLA &amp; uptime guarantee</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e6">Dedicated account manager</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e7">24/7 phone &amp; video support</span></li>
-          <li><span class="check"><svg fill="none" stroke="#0077FF" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="e8">Onboarding &amp; training</span></li>
-        </ul>
-        <a href="mailto:erdncyz@gmail.com?subject=Mercury%20Enterprise%20Quote&body=Hello%2C%0AI%20would%20like%20info%20about%20the%20Enterprise%20plan.%0ACompany%3A%20%0AUsers%3A%20%0ADevices%3A%20%0ARequirements%3A%20" class="plan-btn btn-ghost" data-i18n="btn_contact">Contact Us</a>
+      <div class="platform-tags">
+        <span>Uzaktan Kontrol</span>
+        <span>Paralel Çalıştırma</span>
+        <span>Appium Entegrasyonu</span>
+        <span>Otomasyon API</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── SCREENSHOTS ─── -->
-<section id="screenshots" class="section screenshots">
-  <div class="container text-center">
-    <span class="badge" data-i18n="badge_platform">Platform</span>
-    <h2 class="section-title" data-i18n="screenshots_title">Explore Mercury</h2>
-    <p class="section-subtitle" data-i18n="screenshots_subtitle">Get a closer look at the platform with real interface screens.</p>
-    <div class="screenshots-grid">
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local/auth/login</div></div><div class="mockup-screen screen-login"><div class="mock-login"><div class="mock-login-logo"></div><div class="mock-input"></div><div class="mock-input"></div><div class="mock-btn-login"></div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_login">Login Screen — Secure authentication</span></div></div>
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local/devices</div></div><div class="mockup-screen screen-devices"><div class="mock-devices-wrap"><div class="mock-topbar"><div class="mock-topbar-left"><div class="mock-topbar-logo"></div><div class="mock-topbar-text"></div></div><div class="mock-search"></div></div><div class="mock-device-grid"><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status online"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status online"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status busy"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status online"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status offline"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status online"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status online"></div></div><div class="mock-device-card"><div class="mock-device-phone"></div><div class="mock-device-name"></div><div class="mock-device-status busy"></div></div></div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_devices">Device List — All devices in one panel</span></div></div>
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local/control/android/SGH-N075</div></div><div class="mockup-screen screen-android"><div class="mock-remote-wrap"><div class="mock-phone-frame"><div class="mock-phone-notch"></div><div class="mock-phone-screen android-screen"></div><div class="mock-phone-home"></div></div><div class="mock-controls"><div class="mock-controls-row"><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div></div><div class="mock-controls-row"><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div></div><div class="mock-info-panel"><div class="mock-info-line"></div><div class="mock-info-line"></div><div class="mock-info-line"></div><div class="mock-info-line"></div></div></div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_android">Android Remote Control — Real-time interaction</span></div></div>
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local/control/ios/iPhone14Pro</div></div><div class="mockup-screen screen-ios"><div class="mock-remote-wrap"><div class="mock-phone-frame"><div class="mock-phone-notch"></div><div class="mock-phone-screen ios-screen"></div><div class="mock-phone-home"></div></div><div class="mock-controls"><div class="mock-controls-row"><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div></div><div class="mock-controls-row"><div class="mock-ctrl-btn"></div><div class="mock-ctrl-btn"></div></div><div class="mock-info-panel"><div class="mock-info-line"></div><div class="mock-info-line"></div><div class="mock-info-line"></div><div class="mock-info-line"></div></div></div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_ios">iOS Remote Control — Native device management</span></div></div>
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local/settings</div></div><div class="mockup-screen screen-settings"><div class="mock-settings-wrap"><div class="mock-sidebar"><div class="mock-sidebar-item active"></div><div class="mock-sidebar-item"></div><div class="mock-sidebar-item"></div><div class="mock-sidebar-item"></div><div class="mock-sidebar-item"></div></div><div class="mock-settings-main"><div class="mock-form-group"><div class="mock-form-label"></div><div class="mock-form-input"></div></div><div class="mock-form-group"><div class="mock-form-label"></div><div class="mock-form-input"></div></div><div class="mock-form-toggle"><div class="mock-toggle-track"></div><div class="mock-toggle-label"></div></div><div class="mock-form-toggle"><div class="mock-toggle-track"></div><div class="mock-toggle-label"></div></div></div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_settings">Settings Panel — Full configuration control</span></div></div>
-      <div class="screenshot-item"><div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url">https://mercury.local</div></div><div class="mockup-screen screen-logo"><div class="mock-logo-wrap"><div class="mock-logo-planet"><div class="p-core"></div><div class="p-ring"></div><div class="p-inner"></div><div class="p-satellite"></div></div><div class="mock-logo-text">Mercury</div><div class="mock-logo-subtitle">Device Farm</div></div></div><div class="screenshot-caption"><span class="dot-indicator"></span><span data-i18n="ss_logo">Mercury Device Farm — Test automation platform</span></div></div>
+  <!-- ───────── Stats ───────── -->
+  <div class="container stats">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">2</div><div class="label">Platform (Android & iOS)</div></div>
+      <div class="stat"><div class="num">12+</div><div class="label">Dokümantasyon Rehberi</div></div>
+      <div class="stat"><div class="num">EN / TR</div><div class="label">Çift Dilli Dokümanlar</div></div>
+      <div class="stat"><div class="num">Apache 2.0</div><div class="label">Açık Kaynak Lisans</div></div>
     </div>
   </div>
-</section>
 
-<!-- ─── COMPARISON TABLE ─── -->
-<section id="comparison" class="section comparison">
-  <div class="container text-center">
-    <span class="badge" data-i18n="badge_comparison">Comparison</span>
-    <h2 class="section-title" data-i18n="comparison_title">Plan Details</h2>
-    <p class="section-subtitle" data-i18n="comparison_subtitle">Compare all plans side by side and choose the best fit for you.</p>
-    <div class="comparison-table-wrapper">
-      <table class="comparison-table">
-        <thead><tr><th data-i18n="tbl_feature">Feature</th><th>Starter</th><th class="highlight-col">Professional</th><th>Enterprise</th></tr></thead>
-        <tbody>
-          <tr><td data-i18n="tbl_concurrent">Concurrent devices</td><td><span class="table-text">5</span></td><td class="highlight-col"><span class="table-text">25</span></td><td><span class="table-text" data-i18n="tbl_unlimited">Unlimited</span></td></tr>
-          <tr><td data-i18n="tbl_android">Android support</td><td><span class="table-check">✓</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_ios">iOS support</td><td><span class="table-check">✓</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_remote">Remote control</td><td><span class="table-check">✓</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_appium">Appium integration</td><td><span class="table-check">✓</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td>REST API</td><td><span class="table-check">✓</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_parallel">Parallel test execution</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_cicd">CI/CD integration</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_tv">Smart TV (Tizen) support</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-check">✓</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_reporting">Reporting &amp; analytics</td><td><span class="table-text" data-i18n="tbl_basic">Basic</span></td><td class="highlight-col"><span class="table-text" data-i18n="tbl_advanced">Advanced</span></td><td><span class="table-text" data-i18n="tbl_custom">Customizable</span></td></tr>
-          <tr><td data-i18n="tbl_auth">Authentication</td><td><span class="table-text">Mock</span></td><td class="highlight-col"><span class="table-text">OAuth2 / OpenID</span></td><td><span class="table-text">LDAP / SAML2 / All</span></td></tr>
-          <tr><td data-i18n="tbl_onprem">On-premise deployment</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-cross">—</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_sla">Custom SLA</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-cross">—</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_am">Dedicated account manager</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-cross">—</span></td><td><span class="table-check">✓</span></td></tr>
-          <tr><td data-i18n="tbl_support">Support</td><td><span class="table-text" data-i18n="tbl_email">Email</span></td><td class="highlight-col"><span class="table-text" data-i18n="tbl_priority">Priority</span></td><td><span class="table-text" data-i18n="tbl_247">24/7 Phone &amp; Video</span></td></tr>
-          <tr><td data-i18n="tbl_training">Training &amp; onboarding</td><td><span class="table-cross">—</span></td><td class="highlight-col"><span class="table-text" data-i18n="tbl_docs">Documentation</span></td><td><span class="table-text" data-i18n="tbl_live">Live training</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+  <!-- ───────── Features ───────── -->
+  <section class="section" id="features">
+    <div class="container text-center">
+      <p class="eyebrow">Neler Yapabilir?</p>
+      <h2 class="section-title">Cihaz laboratuvarınız için her şey tek yerde</h2>
+      <p class="section-sub">Gerçek cihazları tarayıcıdan yönetin, test ekiplerinizle paylaşın ve otomasyon hattınıza bağlayın.</p>
 
-<!-- ─── FAQ ─── -->
-<section id="faq" class="section faq">
-  <div class="container text-center">
-    <span class="badge" data-i18n="badge_faq">FAQ</span>
-    <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
-    <p class="section-subtitle" data-i18n="faq_subtitle">Quick answers to the most common questions.</p>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq1_q">What is Mercury Device Farm?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq1_a">Mercury is an open-source device farm platform that lets you remotely manage real Android and iOS devices via the browser. It is used for test automation, app development and debugging.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq2_q">Which devices are supported?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq2_a">Android phones and tablets, iOS (iPhone &amp; iPad) devices, and Samsung Tizen Smart TVs are supported. Native iOS support is provided on macOS.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq3_q">How easy is the setup?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq3_a">Setup is a single command with Docker Compose. Xcode is required for iOS support on macOS. The entire process is documented step by step. On the Enterprise plan, our dedicated team handles the setup for you.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq4_q">How does Appium integration work?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq4_a">Mercury offers native Appium integration. You can connect to devices through Mercury without modifying your existing test scripts. A detailed integration guide is available in the documentation.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq5_q">Is there a free trial?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq5_a">Yes! We offer a 14-day free trial for all plans. No credit card required during the trial period. Contact erdncyz@gmail.com for more details.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq6_q">Is on-premise deployment available?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq6_a">The Enterprise plan supports full on-premise or private cloud deployment. Your data stays on your own infrastructure. Configuration in compliance with your security standards is provided.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq7_q">What payment methods are accepted?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq7_a">We accept credit card, bank transfer and corporate invoice payments. Annual plans receive a 20% discount. Contact us for details.</div></div></div>
-      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq8_q">Can I change or cancel my plan?</span><span class="arrow"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq8_a">You can upgrade your plan at any time. Cancellation takes effect at the end of the billing period with a refund for the remaining time. No commitment required.</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CTA / CONTACT ─── -->
-<section id="contact" class="section cta-section">
-  <div class="container text-center">
-    <div class="cta-inner">
-      <h2 data-i18n="cta_title">Let's Find the Right Plan for Your Project</h2>
-      <p data-i18n="cta_desc">Contact us for a custom quote based on your team size and requirements. Our expert team will help determine the best solution for you.</p>
-      <div class="cta-email-card">
-        <div class="cta-email-icon">✉️</div>
-        <div class="email-label" data-i18n="cta_label">For Pricing &amp; Quotes</div>
-        <div class="email-address"><a href="mailto:erdncyz@gmail.com?subject=Mercury%20Device%20Farm%20Pricing&body=Hello%2C%0AI%20would%20like%20pricing%20info.%0ACompany%3A%20%0APlan%3A%20%0AUsers%3A%20%0ADevices%3A%20">erdncyz@gmail.com</a></div>
-      </div>
-      <div class="cta-benefits">
-        <div class="cta-benefit"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b1">14-day free trial</span></div>
-        <div class="cta-benefit"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b2">No credit card required</span></div>
-        <div class="cta-benefit"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b3">Response within 24 hours</span></div>
-        <div class="cta-benefit"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b4">No commitment</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─── -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <svg width="200" height="36" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="14" fill="#0077FF"/><ellipse cx="20" cy="20" rx="18" ry="6" transform="rotate(-25 18 20)" fill="none" stroke="#00D2FF" stroke-width="2.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="8" fill="#004199"/><circle cx="38" cy="8" r="3.5" fill="#00D2FF"/>
-            <text x="45" y="27" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="800" fill="rgba(255,255,255,.9)" letter-spacing="0.5">Mercury</text>
-            <rect x="130" y="6" width="95" height="28" rx="6" fill="#0077FF"/><text x="177" y="25" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle" letter-spacing="0.2">Device Farm</text>
-          </svg>
+      <div class="features-grid" style="text-align:left;">
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
+          <h3>Uzaktan Cihaz Kontrolü</h3>
+          <p>Android ve iOS cihazlarını tarayıcı üzerinden canlı ekran ile uzaktan kontrol edin.</p>
         </div>
-        <p data-i18n="footer_desc">Real device test automation platform. Android, iOS and Smart TV support.</p>
-      </div>
-      <div class="footer-links-group">
-        <h4 data-i18n="footer_platform">Platform</h4>
-        <a href="#features" data-i18n="nav_features">Features</a>
-        <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
-        <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
-        <a href="#comparison" data-i18n="footer_plan_compare">Plan Comparison</a>
-      </div>
-      <div class="footer-links-group">
-        <h4 data-i18n="footer_resources">Resources</h4>
-        <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener" data-i18n="footer_issues">Support &amp; Issues</a>
-        <a href="docs/index.md" data-i18n="footer_docs">Documentation</a>
-        <a href="docs/appium-integration.md" data-i18n="footer_appium">Appium Guide</a>
-      </div>
-      <div class="footer-links-group">
-        <h4 data-i18n="footer_contact">Contact</h4>
-        <a href="mailto:erdncyz@gmail.com">erdncyz@gmail.com</a>
-        <a href="https://github.com/erdncyz" target="_blank" rel="noopener" data-i18n="footer_github">GitHub Profile</a>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div>
+          <h3>Paralel Çalıştırma</h3>
+          <p>Birden fazla cihaz üzerinde aynı anda test koşturarak süreçlerinizi hızlandırın.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Appium & Otomasyon API</h3>
+          <p>Appium entegrasyonu ve otomasyon API'si ile mevcut test altyapınıza kolayca bağlanın.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <h3>Docker ile Kurulum</h3>
+          <p>Docker Compose tabanlı stack ile tek komutla servisleri ayağa kaldırın.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3>Smart TV (Tizen) Desteği</h3>
+          <p>Mobil cihazların yanı sıra Smart TV platformları için de rehberli destek.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Güvenli & Açık Kaynak</h3>
+          <p>Apache 2.0 lisanslı backend ve CLI ile şeffaf, denetlenebilir bir altyapı.</p>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span data-i18n="footer_copy">© 2026 Erdinc Yilmaz. All rights reserved.</span>
-      <span>Apache License 2.0</span>
+  </section>
+
+  <!-- ───────── Screenshots ───────── -->
+  <section class="section" id="screens" style="background:var(--white);">
+    <div class="container text-center">
+      <p class="eyebrow">Arayüz</p>
+      <h2 class="section-title">Sade ve modern bir cihaz paneli</h2>
+      <p class="section-sub">Giriş ekranından uzaktan kontrole kadar tüm akış tek bir tarayıcı arayüzünde.</p>
+
+      <div class="shots-grid">
+        <div class="shot">
+          <img src="https://github.com/user-attachments/assets/e4f7de0b-0cc7-40fa-9da5-a747b899bc11" alt="Mercury Login Page" loading="lazy" />
+          <div class="cap"><span class="dot"></span> Giriş Ekranı</div>
+        </div>
+        <div class="shot">
+          <img src="https://github.com/user-attachments/assets/c3350673-3c2d-4643-a3be-e99c221b968f" alt="Mercury Devices Page" loading="lazy" />
+          <div class="cap"><span class="dot"></span> Cihazlar Sayfası</div>
+        </div>
+        <div class="shot">
+          <img src="https://github.com/user-attachments/assets/0bcef877-8562-4bb2-aecc-c551098591cf" alt="Android Remote Controller" loading="lazy" />
+          <div class="cap"><span class="dot"></span> Android Uzaktan Kontrol</div>
+        </div>
+        <div class="shot">
+          <img src="https://github.com/user-attachments/assets/71f660c3-7d50-4d08-b3b1-2b7768aa0c80" alt="iOS Remote Controller" loading="lazy" />
+          <div class="cap"><span class="dot"></span> iOS Uzaktan Kontrol</div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-var i18n = {
-  en: {
-    page_title:"Mercury Device Farm — Pricing",nav_features:"Features",nav_pricing:"Pricing",nav_screenshots:"Screenshots",nav_comparison:"Comparison",nav_faq:"FAQ",nav_contact:"Contact Us",
-    hero_badge:"New: iOS 18 & Android 15 Support",hero_title:'Real Device<br><span>Test Automation</span>',hero_desc:"Manage your Android and iOS devices from the browser with Mercury Device Farm. Cloud infrastructure, parallel testing, Appium integration and more.",hero_btn_plans:"View Plans",hero_btn_quote:"Get a Quote",
-    stat_devices:"Concurrent Devices",stat_uptime:"Uptime SLA",stat_latency:"Avg Latency",stat_support:"Technical Support",
-    badge_features:"Features",features_title:"Everything in One Platform",features_subtitle:"Android and iOS device management, automation infrastructure and remote control — all in Mercury.",
-    f1_title:"Real Device Access",f1_desc:"Instant access to physical Android and iOS devices via the browser. Real hardware, not emulators.",
-    f2_title:"Parallel Test Execution",f2_desc:"Run tests simultaneously on hundreds of devices. Full automation with CI/CD pipeline integration.",
-    f3_title:"Appium Integration",f3_desc:"Native Appium support — run your existing test frameworks without any changes.",
-    f4_title:"Remote Control",f4_desc:"Real-time screen sharing, touch control and device interaction — with low latency.",
-    f5_title:"Detailed Reporting",f5_desc:"Test results, performance metrics and device usage analytics in a single dashboard.",
-    f6_title:"Enterprise Security",f6_desc:"LDAP, OAuth2, OpenID and SAML2 support. Role-based access control and audit logs.",
-    f7_title:"Easy Docker Setup",f7_desc:"Single-command setup with Docker Compose. Quick start with macOS and Linux support.",
-    f8_title:"Smart TV Support",f8_desc:"Remote control and test automation for Samsung Tizen-based Smart TVs.",
-    f9_title:"REST API",f9_desc:"Comprehensive REST API for device management, test execution and result querying.",
-    badge_pricing:"Pricing",pricing_title:"The Right Plan for Your Needs",pricing_subtitle:"From small teams to large enterprises — flexibility and transparent pricing.",
-    toggle_monthly:"Monthly",toggle_annual:"Annual",per_month:" /mo",
-    starter_desc:"For small teams and individual developers",starter_note:"$239/mo with annual billing",
-    s1:"5 concurrent device connections",s2:"Android & iOS support",s3:"Remote control & screen sharing",s4:"Appium integration",s5:"Email support",s6:"REST API access",btn_quote:"Get a Quote",
-    most_popular:"Most Popular",pro_desc:"For growing teams and mid-size projects",pro_note:"$639/mo with annual billing",
-    p1:"<strong>25</strong> concurrent device connections",p2:"Everything in Starter plan",p3:"Parallel test execution",p4:"CI/CD pipeline integration",p5:"Advanced reporting & analytics",p6:"Smart TV (Tizen) support",p7:"Priority technical support",
-    ent_desc:"For large organizations and custom needs",custom_price:"Custom Price",ent_note:"Get a tailored quote for your needs",
-    e1:"<strong>Unlimited</strong> device connections",e2:"Everything in Professional plan",e3:"On-premise / Private Cloud deployment",e5:"Custom SLA & uptime guarantee",e6:"Dedicated account manager",e7:"24/7 phone & video support",e8:"Onboarding & training",btn_contact:"Contact Us",
-    badge_platform:"Platform",screenshots_title:"Explore Mercury",screenshots_subtitle:"Get a closer look at the platform with real interface screens.",
-    ss_login:"Login Screen — Secure authentication",ss_devices:"Device List — All devices in one panel",ss_android:"Android Remote Control — Real-time interaction",ss_ios:"iOS Remote Control — Native device management",ss_settings:"Settings Panel — Full configuration control",ss_logo:"Mercury Device Farm — Test automation platform",
-    badge_comparison:"Comparison",comparison_title:"Plan Details",comparison_subtitle:"Compare all plans side by side and choose the best fit for you.",
-    tbl_feature:"Feature",tbl_concurrent:"Concurrent devices",tbl_unlimited:"Unlimited",tbl_android:"Android support",tbl_ios:"iOS support",tbl_remote:"Remote control",tbl_appium:"Appium integration",tbl_parallel:"Parallel test execution",tbl_cicd:"CI/CD integration",tbl_tv:"Smart TV (Tizen) support",tbl_reporting:"Reporting & analytics",tbl_basic:"Basic",tbl_advanced:"Advanced",tbl_custom:"Customizable",tbl_auth:"Authentication",tbl_onprem:"On-premise deployment",tbl_sla:"Custom SLA",tbl_am:"Dedicated account manager",tbl_support:"Support",tbl_email:"Email",tbl_priority:"Priority",tbl_247:"24/7 Phone & Video",tbl_training:"Training & onboarding",tbl_docs:"Documentation",tbl_live:"Live training",
-    badge_faq:"FAQ",faq_title:"Frequently Asked Questions",faq_subtitle:"Quick answers to the most common questions.",
-    faq1_q:"What is Mercury Device Farm?",faq1_a:"Mercury is an open-source device farm platform that lets you remotely manage real Android and iOS devices via the browser. It is used for test automation, app development and debugging.",
-    faq2_q:"Which devices are supported?",faq2_a:"Android phones and tablets, iOS (iPhone & iPad) devices, and Samsung Tizen Smart TVs are supported. Native iOS support is provided on macOS.",
-    faq3_q:"How easy is the setup?",faq3_a:"Setup is a single command with Docker Compose. Xcode is required for iOS support on macOS. The entire process is documented step by step. On the Enterprise plan, our dedicated team handles the setup for you.",
-    faq4_q:"How does Appium integration work?",faq4_a:"Mercury offers native Appium integration. You can connect to devices through Mercury without modifying your existing test scripts. A detailed integration guide is available in the documentation.",
-    faq5_q:"Is there a free trial?",faq5_a:"Yes! We offer a 14-day free trial for all plans. No credit card required during the trial period. Contact erdncyz@gmail.com for more details.",
-    faq6_q:"Is on-premise deployment available?",faq6_a:"The Enterprise plan supports full on-premise or private cloud deployment. Your data stays on your own infrastructure.",
-    faq7_q:"What payment methods are accepted?",faq7_a:"We accept credit card, bank transfer and corporate invoice payments. Annual plans receive a 20% discount. Contact us for details.",
-    faq8_q:"Can I change or cancel my plan?",faq8_a:"You can upgrade your plan at any time. Cancellation takes effect at the end of the billing period with a refund for the remaining time. No commitment required.",
-    cta_title:"Let's Find the Right Plan for Your Project",cta_desc:"Contact us for a custom quote based on your team size and requirements. Our expert team will help determine the best solution for you.",cta_label:"For Pricing & Quotes",
-    cta_b1:"14-day free trial",cta_b2:"No credit card required",cta_b3:"Response within 24 hours",cta_b4:"No commitment",
-    footer_desc:"Real device test automation platform. Android, iOS and Smart TV support.",footer_platform:"Platform",footer_plan_compare:"Plan Comparison",footer_resources:"Resources",footer_issues:"Support & Issues",footer_docs:"Documentation",footer_appium:"Appium Guide",footer_contact:"Contact",footer_github:"GitHub Profile",footer_copy:"© 2026 Erdinc Yilmaz. All rights reserved.",
-    pricing_annual_note:"Annual billing"
-  },
-  tr: {
-    page_title:"Mercury Device Farm — Fiyatlandırma",nav_features:"Özellikler",nav_pricing:"Fiyatlandırma",nav_screenshots:"Ekran Görüntüleri",nav_comparison:"Karşılaştırma",nav_faq:"SSS",nav_contact:"İletişime Geç",
-    hero_badge:"Yeni: iOS 18 & Android 15 Desteği",hero_title:'Gerçek Cihazlarda<br><span>Test Otomasyonu</span>',hero_desc:"Mercury Device Farm ile Android ve iOS cihazlarınızı tarayıcıdan yönetin. Bulut altyapısı, paralel test, Appium entegrasyonu ve daha fazlası.",hero_btn_plans:"Planları İncele",hero_btn_quote:"Teklif Al",
-    stat_devices:"Eş Zamanlı Cihaz",stat_uptime:"Uptime SLA",stat_latency:"Ortalama Gecikme",stat_support:"Teknik Destek",
-    badge_features:"Özellikler",features_title:"Her Şey Tek Platformda",features_subtitle:"Android ve iOS cihaz yönetimi, otomasyon altyapısı ve uzaktan kontrol — hepsi Mercury'de.",
-    f1_title:"Gerçek Cihaz Erişimi",f1_desc:"Fiziksel Android ve iOS cihazlara tarayıcı üzerinden anlık erişim. Emülatör değil, gerçek donanım.",
-    f2_title:"Paralel Test Yürütme",f2_desc:"Yüzlerce cihazda eş zamanlı test çalıştırın. CI/CD pipeline entegrasyonu ile tam otomasyon.",
-    f3_title:"Appium Entegrasyonu",f3_desc:"Native Appium desteği ile mevcut test framework'lerinizi değiştirmeden çalıştırın.",
-    f4_title:"Uzaktan Kontrol",f4_desc:"Gerçek zamanlı ekran paylaşımı, dokunma kontrolü ve cihaz etkileşimi — düşük gecikmeyle.",
-    f5_title:"Detaylı Raporlama",f5_desc:"Test sonuçları, performans metrikleri ve cihaz kullanım analitikleri tek panelde.",
-    f6_title:"Kurumsal Güvenlik",f6_desc:"LDAP, OAuth2, OpenID ve SAML2 desteği. Rol tabanlı erişim kontrolü ve audit logları.",
-    f7_title:"Docker ile Kolay Kurulum",f7_desc:"Docker Compose ile tek komutla kurulum. macOS ve Linux desteği ile hızlı başlangıç.",
-    f8_title:"Smart TV Desteği",f8_desc:"Samsung Tizen tabanlı Smart TV'ler için uzaktan kontrol ve test otomasyonu.",
-    f9_title:"REST API",f9_desc:"Tam kapsamlı REST API ile cihaz yönetimi, test başlatma ve sonuç sorgulama.",
-    badge_pricing:"Fiyatlandırma",pricing_title:"İhtiyacınıza Uygun Plan",pricing_subtitle:"Küçük ekiplerden büyük kurumlara — esneklik ve şeffaf fiyatlandırma.",
-    toggle_monthly:"Aylık",toggle_annual:"Yıllık",per_month:" /ay",
-    starter_desc:"Küçük ekipler ve bireysel geliştiriciler için",starter_note:"Yıllık ödemede $239/ay",
-    s1:"5 eş zamanlı cihaz bağlantısı",s2:"Android & iOS desteği",s3:"Uzaktan kontrol & ekran paylaşımı",s4:"Appium entegrasyonu",s5:"E-posta desteği",s6:"REST API erişimi",btn_quote:"Teklif Al",
-    most_popular:"En Popüler",pro_desc:"Büyüyen ekipler ve orta ölçekli projeler",pro_note:"Yıllık ödemede $639/ay",
-    p1:"<strong>25</strong> eş zamanlı cihaz bağlantısı",p2:"Starter planındaki tüm özellikler",p3:"Paralel test yürütme",p4:"CI/CD pipeline entegrasyonu",p5:"Detaylı raporlama & analitik",p6:"Smart TV (Tizen) desteği",p7:"Öncelikli teknik destek",
-    ent_desc:"Büyük kurumlar ve özel ihtiyaçlar için",custom_price:"Özel Fiyat",ent_note:"İhtiyacınıza özel teklif alın",
-    e1:"<strong>Sınırsız</strong> cihaz bağlantısı",e2:"Professional planındaki tüm özellikler",e3:"On-premise / Private Cloud kurulumu",e5:"Özel SLA & uptime garantisi",e6:"Dedicated account manager",e7:"7/24 telefon & video desteği",e8:"Onboarding & eğitim hizmeti",btn_contact:"İletişime Geç",
-    badge_platform:"Platform",screenshots_title:"Mercury'yi Keşfedin",screenshots_subtitle:"Gerçek kullanım ekranları ile platformu yakından tanıyın.",
-    ss_login:"Giriş Ekranı — Güvenli kimlik doğrulama",ss_devices:"Cihaz Listesi — Tüm cihazlar tek panelde",ss_android:"Android Uzaktan Kontrol — Gerçek zamanlı etkileşim",ss_ios:"iOS Uzaktan Kontrol — Native cihaz yönetimi",ss_settings:"Ayarlar Paneli — Tam yapılandırma kontrolü",ss_logo:"Mercury Device Farm — Test otomasyonu platformu",
-    badge_comparison:"Karşılaştırma",comparison_title:"Plan Detayları",comparison_subtitle:"Tüm planları yan yana karşılaştırın ve size en uygun olanı seçin.",
-    tbl_feature:"Özellik",tbl_concurrent:"Eş zamanlı cihaz",tbl_unlimited:"Sınırsız",tbl_android:"Android desteği",tbl_ios:"iOS desteği",tbl_remote:"Uzaktan kontrol",tbl_appium:"Appium entegrasyonu",tbl_parallel:"Paralel test yürütme",tbl_cicd:"CI/CD entegrasyonu",tbl_tv:"Smart TV (Tizen) desteği",tbl_reporting:"Raporlama & analitik",tbl_basic:"Temel",tbl_advanced:"Gelişmiş",tbl_custom:"Özelleştirilebilir",tbl_auth:"Kimlik doğrulama",tbl_onprem:"On-premise kurulum",tbl_sla:"Özel SLA",tbl_am:"Dedicated account manager",tbl_support:"Destek",tbl_email:"E-posta",tbl_priority:"Öncelikli",tbl_247:"7/24 Telefon & Video",tbl_training:"Eğitim & onboarding",tbl_docs:"Dokümantasyon",tbl_live:"Canlı eğitim",
-    badge_faq:"SSS",faq_title:"Sıkça Sorulan Sorular",faq_subtitle:"En çok merak edilen konular hakkında hızlı yanıtlar.",
-    faq1_q:"Mercury Device Farm nedir?",faq1_a:"Mercury, gerçek Android ve iOS cihazlarınızı tarayıcı üzerinden uzaktan yönetmenizi sağlayan açık kaynak tabanlı bir device farm platformudur. Test otomasyonu, uygulama geliştirme ve hata ayıklama süreçlerinde kullanılır.",
-    faq2_q:"Hangi cihazları destekliyor?",faq2_a:"Android telefonlar ve tabletler, iOS (iPhone & iPad) cihazlar ve Samsung Tizen Smart TV'ler desteklenmektedir. macOS üzerinde iOS cihazlar için native destek sağlanır.",
-    faq3_q:"Kurulum ne kadar kolay?",faq3_a:"Docker Compose ile tek komutla kurulum yapılabilir. macOS üzerinde iOS desteği için Xcode gereklidir. Tüm süreç dokümantasyonda adım adım anlatılmıştır. Enterprise planında dedike destek ekibimiz kurulumu sizin için yapar.",
-    faq4_q:"Appium ile nasıl entegre edilir?",faq4_a:"Mercury, Appium ile native entegrasyon sunar. Mevcut test scriptlerinizi değiştirmeden Mercury üzerinden cihazlara bağlanabilirsiniz. Detaylı entegrasyon rehberi dokümantasyonda mevcuttur.",
-    faq5_q:"Ücretsiz deneme süresi var mı?",faq5_a:"Evet! Tüm planlar için 14 günlük ücretsiz deneme sunuyoruz. Deneme süresinde kredi kartı bilgisi gerekmez. Detaylı bilgi için erdncyz@gmail.com adresine yazabilirsiniz.",
-    faq6_q:"On-premise kurulum yapılabiliyor mu?",faq6_a:"Enterprise planında tam on-premise veya private cloud kurulumu desteklenmektedir. Verileriniz kendi altyapınızda kalır.",
-    faq7_q:"Ödeme yöntemleri nelerdir?",faq7_a:"Kredi kartı, banka havalesi ve kurumsal fatura ile ödeme kabul edilmektedir. Yıllık planlarda %20 indirim uygulanır. Detaylar için iletişime geçin.",
-    faq8_q:"Plan değişikliği veya iptal mümkün mü?",faq8_a:"İstediğiniz zaman plan yükseltme yapabilirsiniz. İptal işlemi dönem sonunda geçerli olur ve kalan süre için iade yapılır. Taahhüt gerektirmez.",
-    cta_title:"Projeniz İçin Doğru Planı Bulalım",cta_desc:"Ekibinizin büyüklüğü ve ihtiyaçlarınıza özel fiyat teklifi almak için bize ulaşın. Uzman ekibimiz en uygun çözümü sizinle birlikte belirleyecektir.",cta_label:"Fiyat Bilgisi & Teklif İçin",
-    cta_b1:"14 gün ücretsiz deneme",cta_b2:"Kredi kartı gerekmez",cta_b3:"24 saat içinde yanıt",cta_b4:"İptal taahhüdü yok",
-    footer_desc:"Gerçek cihazlarda test otomasyonu platformu. Android, iOS ve Smart TV desteği.",footer_platform:"Platform",footer_plan_compare:"Plan Karşılaştırma",footer_resources:"Kaynaklar",footer_issues:"Destek & Issues",footer_docs:"Dokümantasyon",footer_appium:"Appium Rehberi",footer_contact:"İletişim",footer_github:"GitHub Profili",footer_copy:"© 2026 Erdinc Yilmaz. Tüm hakları saklıdır.",
-    pricing_annual_note:"Yıllık faturalama ile"
-  }
-};
+  <!-- ───────── Demo Video ───────── -->
+  <section class="section">
+    <div class="container text-center">
+      <p class="eyebrow">Demo</p>
+      <h2 class="section-title">Mercury'yi çalışırken izleyin</h2>
+      <p class="section-sub">Kısa bir tanıtım videosu ile platformun yeteneklerine göz atın.</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/ZHmtFVSZbqM" title="Mercury Device Farm Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
 
-var currentLang = 'en';
-var htmlKeys = ['hero_title','p1','e1'];
+  <!-- ───────── Docs ───────── -->
+  <section class="section" id="docs" style="background:var(--white);">
+    <div class="container text-center">
+      <p class="eyebrow">Dokümantasyon</p>
+      <h2 class="section-title">Tüm rehberlere tek tıkla erişin</h2>
+      <p class="section-sub">Kurulumdan otomasyona, sorun gidermeden mimariye kadar her şey GitHub'da — EN + TR.</p>
 
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  document.title = i18n[lang].page_title;
-  document.querySelectorAll('.lang-switch button').forEach(function(b) {
-    b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
-  });
-  document.querySelectorAll('[data-i18n]').forEach(function(el) {
-    var k = el.getAttribute('data-i18n');
-    if (i18n[lang][k] !== undefined) {
-      if (htmlKeys.indexOf(k) !== -1) { el.innerHTML = i18n[lang][k]; }
-      else { el.textContent = i18n[lang][k]; }
-    }
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
-    var k = el.getAttribute('data-i18n-html');
-    if (i18n[lang][k] !== undefined) el.innerHTML = i18n[lang][k];
-  });
-  var m = document.querySelector('.pricing-toggle button.active');
-  if (m) refreshPricing(m.getAttribute('data-mode') || 'monthly');
-}
+      <div class="docs-grid" style="text-align:left;">
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/README.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <div><h4>README <span class="tag">BAŞLANGIÇ</span></h4><p>Projenin genel tanıtımı ve hızlı başlangıç.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/index.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>
+          <div><h4>Dokümantasyon İndeksi</h4><p>Tüm rehberlerin listelendiği başlangıç noktası.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/getting-started.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+          <div><h4>Getting Started</h4><p>İlk kurulum ve temel kullanım adımları.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/ios-setup.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></span>
+          <div><h4>iOS Setup</h4><p>iOS cihaz sağlayıcı kurulumu ve gereksinimler.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/parallel-execution.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>
+          <div><h4>Parallel Execution</h4><p>Çoklu cihazda paralel test çalıştırma rehberi.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-setup.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <div><h4>Appium Setup</h4><p>Appium kurulumu ve yapılandırma adımları.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-integration.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+          <div><h4>Appium Integration</h4><p>Appium ile entegrasyon senaryoları.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/automation-api.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <div><h4>Automation API</h4><p>Otomasyon API'si ile programatik kullanım.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/API.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+          <div><h4>API Reference</h4><p>Uç noktalar ve istek/yanıt detayları.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/smart-tv-tizen.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
+          <div><h4>Smart TV (Tizen)</h4><p>Tizen tabanlı Smart TV detaylı rehberi.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/architecture.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <div><h4>Architecture <span class="tag">MİMARİ</span></h4><p>Sistem mimarisi (EN). TR için: mimari.md.</p></div>
+        </a>
+        <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">
+          <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><h4>Troubleshooting</h4><p>Sık karşılaşılan sorunlar ve çözümleri.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-function refreshPricing(mode) {
-  var L = i18n[currentLang];
-  document.querySelectorAll('.pricing-card .price[data-monthly]').forEach(function(el) {
-    var v = mode === 'annual' ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
-    el.innerHTML = '<span class="currency">$</span>' + v + '<span class="period">' + L.per_month + '</span>';
-  });
-  var notes = document.querySelectorAll('.pricing-card .price-note');
-  if (notes[0]) notes[0].textContent = mode === 'annual' ? L.pricing_annual_note : L.starter_note;
-  if (notes[1]) notes[1].textContent = mode === 'annual' ? L.pricing_annual_note : L.pro_note;
-  if (notes[2]) notes[2].textContent = L.ent_note;
-}
+  <!-- ───────── Quick Start ───────── -->
+  <section class="section" id="start">
+    <div class="container text-center">
+      <p class="eyebrow">Hızlı Başlangıç</p>
+      <h2 class="section-title">Birkaç komutla ayağa kaldırın</h2>
+      <p class="section-sub">macOS üzerinde kaynak kurulumu ile Mercury'yi dakikalar içinde çalıştırın.</p>
 
-function toggleFaq(btn) {
-  var item = btn.closest('.faq-item'), wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(e) { e.classList.remove('open'); });
-  if (!wasOpen) item.classList.add('open');
-}
+      <div class="qs-wrap">
+        <div style="text-align:left;">
+          <h3>Kurulum Akışı</h3>
+          <p>iOS otomasyonu Xcode araçları gerektirdiğinden proje macOS için optimize edilmiştir.</p>
+          <ul class="qs-list">
+            <li><span class="n">1</span> Gereksinimleri kurun (Docker, Node, Xcode araçları)</li>
+            <li><span class="n">2</span> Depoyu klonlayın ve <code>npm ci</code> çalıştırın</li>
+            <li><span class="n">3</span> Stack'i başlatın ve iOS sağlayıcıyı ayağa kaldırın</li>
+            <li><span class="n">4</span> Tarayıcıdan <code>https://&lt;MERCURY_DOMAIN&gt;</code> adresine gidin</li>
+          </ul>
+        </div>
+        <div class="code-block"><span class="c-comment"># 1) Depoyu klonla</span>
+<span class="c-cmd">git</span> clone https://github.com/erdncyz/mercury-farm.git
+<span class="c-cmd">cd</span> mercury-farm
 
-function togglePricing(mode, btn) {
-  document.querySelectorAll('.pricing-toggle button').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  refreshPricing(mode);
-}
+<span class="c-comment"># 2) Bağımlılıkları kur</span>
+<span class="c-cmd">npm</span> ci
 
-window.addEventListener('scroll', function() {
-  document.querySelector('.navbar').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(0,60,130,.08)' : 'none';
-});
-</script>
+<span class="c-comment"># 3) Stack'i başlat</span>
+<span class="c-cmd">npm</span> run stack:up:macos
+<span class="c-cmd">./scripts/start-ios-provider.sh</span>
+
+<span class="c-comment"># 4) Arayüzü aç → https://&lt;MERCURY_DOMAIN&gt;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-band">
+        <span class="badge">Açık Kaynak</span>
+        <h2 style="margin-top:18px;">Projeyi GitHub'da keşfedin</h2>
+        <p>Kaynak kodu inceleyin, dokümanlara göz atın veya bir sorun bildirin.</p>
+        <div class="cta-actions">
+          <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="btn btn-dark">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+            Depoyu Aç
+          </a>
+          <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Sorun Bildir
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Footer ───────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo"><span class="logo-mark">M</span> Mercury Device Farm</div>
+          <p>Android ve iOS için tarayıcı tabanlı gerçek cihaz laboratuvarı. macOS için optimize edilmiş, açık kaynaklı.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Proje</h5>
+            <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener">GitHub Deposu</a>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/README.md" target="_blank" rel="noopener">README</a>
+            <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener">Issues</a>
+          </div>
+          <div class="footer-col">
+            <h5>Dokümanlar</h5>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/index.md" target="_blank" rel="noopener">İndeks</a>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Getting Started</a>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">Troubleshooting</a>
+          </div>
+          <div class="footer-col">
+            <h5>Platformlar</h5>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/ios-setup.md" target="_blank" rel="noopener">iOS</a>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/smart-tv-tizen.md" target="_blank" rel="noopener">Smart TV (Tizen)</a>
+            <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-setup.md" target="_blank" rel="noopener">Appium</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Erdinç Yılmaz · Mercury Device Farm</span>
+        <span>Apache License 2.0 · Açık Kaynak</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
