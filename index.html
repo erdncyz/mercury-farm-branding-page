@@ -271,31 +271,6 @@
     .feature-card h3 { font-size: 19px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
     .feature-card p { color: var(--gray-500); font-size: 15px; }
 
-    /* ───────── Screenshots ───────── */
-    .shots-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .shot {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-    .shot:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
-    .shot img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--gray-100); }
-    .shot .cap {
-      padding: 16px 20px;
-      font-weight: 700; font-size: 15px; color: var(--gray-900);
-      display: flex; align-items: center; gap: 9px;
-      border-top: 1px solid var(--gray-100);
-    }
-    .shot .cap .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); }
-
     /* ───────── Demo Video ───────── */
     .video-wrap {
       position: relative;
@@ -427,7 +402,7 @@
     }
     @media (max-width: 600px) {
       .section { padding: 64px 0; }
-      .features-grid, .docs-grid, .shots-grid, .stats-grid { grid-template-columns: 1fr; }
+      .features-grid, .docs-grid, .stats-grid { grid-template-columns: 1fr; }
       .qs-wrap { padding: 32px 22px; }
       .cta-band { padding: 44px 22px; }
     }
@@ -536,30 +511,17 @@
     </div>
   </section>
 
-  <!-- ───────── Screenshots ───────── -->
+  <!-- ───────── Screenshots → README ───────── -->
   <section class="section" id="screens" style="background:var(--white);">
     <div class="container text-center">
       <p class="eyebrow">Arayüz</p>
-      <h2 class="section-title">Sade ve modern bir cihaz paneli</h2>
-      <p class="section-sub">Giriş ekranından uzaktan kontrole kadar tüm akış tek bir tarayıcı arayüzünde.</p>
-
-      <div class="shots-grid">
-        <div class="shot">
-          <img src="https://github.com/user-attachments/assets/e4f7de0b-0cc7-40fa-9da5-a747b899bc11" alt="Mercury Login Page" loading="lazy" />
-          <div class="cap"><span class="dot"></span> Giriş Ekranı</div>
-        </div>
-        <div class="shot">
-          <img src="https://github.com/user-attachments/assets/c3350673-3c2d-4643-a3be-e99c221b968f" alt="Mercury Devices Page" loading="lazy" />
-          <div class="cap"><span class="dot"></span> Cihazlar Sayfası</div>
-        </div>
-        <div class="shot">
-          <img src="https://github.com/user-attachments/assets/0bcef877-8562-4bb2-aecc-c551098591cf" alt="Android Remote Controller" loading="lazy" />
-          <div class="cap"><span class="dot"></span> Android Uzaktan Kontrol</div>
-        </div>
-        <div class="shot">
-          <img src="https://github.com/user-attachments/assets/71f660c3-7d50-4d08-b3b1-2b7768aa0c80" alt="iOS Remote Controller" loading="lazy" />
-          <div class="cap"><span class="dot"></span> iOS Uzaktan Kontrol</div>
-        </div>
+      <h2 class="section-title">Ekran görüntülerinin tamamı README'de</h2>
+      <p class="section-sub">Giriş ekranı, cihazlar sayfası ve Android/iOS uzaktan kontrol görsellerini güncel hâliyle GitHub README üzerinden inceleyin.</p>
+      <div style="margin-top:36px;">
+        <a href="https://github.com/erdncyz/mercury-farm/blob/main/README.md#readme" target="_blank" rel="noopener" class="btn btn-dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          README'deki Ekran Görüntüleri
+        </a>
       </div>
     </div>
   </section>
