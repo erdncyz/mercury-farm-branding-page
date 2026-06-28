@@ -610,17 +610,20 @@
           <h3>Kurulum Akışı</h3>
           <p>Web arayüzü özel (proprietary) olduğundan kaynaktan derlenmez; önerilen yöntem GHCR'deki hazır imajı çekmektir. Depoyu yalnızca compose dosyası, scriptler ve iOS sağlayıcı için klonlarsınız.</p>
           <ul class="qs-list">
-            <li><span class="n">1</span> Gereksinimleri kurun (Docker, Node, Xcode araçları)</li>
+            <li><span class="n">1</span> Gereksinimleri kurun (Docker, Node, adb, libimobiledevice, Xcode CLT)</li>
             <li><span class="n">2</span> Depoyu klonlayın ve host araçlarını kurun (<code>npm ci</code>)</li>
             <li><span class="n">3</span> Hazır imajı çekip stack'i başlatın, iOS sağlayıcıyı ayağa kaldırın</li>
             <li><span class="n">4</span> Tarayıcıdan <code>https://&lt;MERCURY_DOMAIN&gt;</code> adresine gidin</li>
           </ul>
         </div>
-        <div class="code-block"><span class="c-comment"># 1) Depoyu klonla (compose, script, iOS sağlayıcı)</span>
+        <div class="code-block"><span class="c-comment"># 1) Gereksinimler (macOS)</span>
+<span class="c-cmd">brew</span> install --cask docker
+<span class="c-cmd">brew</span> install node android-platform-tools libimobiledevice usbmuxd
+<span class="c-cmd">xcode-select</span> --install
+
+<span class="c-comment"># 2) Depoyu klonla ve host araçlarını kur</span>
 <span class="c-cmd">git</span> clone https://github.com/erdncyz/mercury-farm.git
 <span class="c-cmd">cd</span> mercury-farm
-
-<span class="c-comment"># 2) Host araçlarını kur</span>
 <span class="c-cmd">npm</span> ci
 
 <span class="c-comment"># 3) Hazır imajı çek ve stack'i başlat</span>
