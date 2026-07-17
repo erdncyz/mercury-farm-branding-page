@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mercury Device Farm | Android, iOS ve Tizen Cihaz Laboratuvarı</title>
-  <meta name="description" content="Android, iOS ve Tizen gerçek cihazlarını tarayıcıdan yönetin; Appium ve Automation API ile paralel testleri kendi macOS altyapınızda çalıştırın." />
+  <title>Mercury Device Farm | Real Device Lab for Android, iOS, and Tizen</title>
+  <meta name="description" content="Control Android, iOS, and Tizen real devices from your browser and run parallel Appium and Automation API flows on your macOS host." />
   <meta name="theme-color" content="#151713" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mercury Device Farm" />
-  <meta property="og:description" content="Kendi altyapınızda çalışan, tarayıcı tabanlı gerçek cihaz laboratuvarı." />
+  <meta property="og:description" content="A browser-based real-device lab running on your own infrastructure." />
   <meta property="og:url" content="https://mercury-farm-brand.netlify.app/" />
   <meta property="og:image" content="https://mercury-farm-brand.netlify.app/assets/device-inventory.jpg" />
   <link rel="canonical" href="https://mercury-farm-brand.netlify.app/" />
@@ -417,7 +417,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">İçeriğe geç</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
     <div class="container nav">
@@ -425,16 +425,20 @@
         <span class="brand-mark" aria-hidden="true">M</span>
         <span class="brand-copy"><strong>Mercury</strong><small>Device Farm</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" title="Menüyü aç">
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" title="Open menu" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <nav class="nav-links" id="site-nav" aria-label="Ana navigasyon">
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="#product" class="link">Ürün</a>
         <a href="#capabilities" class="link">Yetenekler</a>
         <a href="#start" class="link">Kurulum</a>
         <a href="#docs" class="link">Dokümanlar</a>
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button class="lang-btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" type="button" data-lang="tr" aria-pressed="false">TR</button>
+        </div>
         <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="nav-cta">
-          GitHub
+          <span class="nav-cta-label">GitHub</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
       </nav>
@@ -452,11 +456,11 @@
           <p class="hero-lead">Gerçek cihazları ekibinizle paylaşın, canlı kontrol edin ve Appium ya da Automation API üzerinden paralel test akışlarına bağlayın.</p>
           <div class="hero-actions">
             <a href="#start" class="btn btn-primary">
-              Kurulumu başlat
+              <span class="btn-label-start">Kurulumu başlat</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </a>
             <a href="#demo" class="btn btn-ghost">
-              Demoyu izle
+              <span class="btn-label-demo">Demoyu izle</span>
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </a>
           </div>
@@ -646,7 +650,7 @@
         </div>
         <div class="docs-footer">
           <a href="https://github.com/erdncyz/mercury-farm/tree/main/docs" target="_blank" rel="noopener" class="btn btn-dark">
-            Tüm dokümanları aç
+            <span class="btn-label-open-docs">Tüm dokümanları aç</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -737,7 +741,7 @@
         </div>
         <div class="cta-actions">
           <a href="https://github.com/erdncyz/mercury-farm/releases/latest" target="_blank" rel="noopener" class="btn btn-dark">
-            Son release'i aç
+            <span class="btn-label-open-release">Son release'i aç</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
           <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener" class="btn btn-secondary">Destek / Issues</a>
@@ -750,7 +754,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#top" class="brand" aria-label="Mercury Device Farm ana sayfa">
+          <a href="#top" class="brand" aria-label="Mercury Device Farm home">
             <span class="brand-mark" aria-hidden="true">M</span>
             <span class="brand-copy"><strong>Mercury</strong><small>Device Farm</small></span>
           </a>
@@ -786,14 +790,190 @@
 
   <script>
     (() => {
+      const localeData = {
+        en: {
+          title: "Mercury Device Farm | Real Device Lab for Android, iOS, and Tizen",
+          description: "Control Android, iOS, and Tizen real devices from your browser and run parallel Appium and Automation API flows on your macOS host.",
+          ogDescription: "A browser-based real-device lab running on your own infrastructure.",
+          openMenu: "Open menu",
+          closeMenu: "Close menu",
+          copyIdle: "Copy",
+          copyOk: "Copied",
+          copyFail: "Copy failed",
+          text: [
+            [".skip-link", "Skip to content"],
+            ["#site-nav .link:nth-of-type(1)", "Product"],
+            ["#site-nav .link:nth-of-type(2)", "Capabilities"],
+            ["#site-nav .link:nth-of-type(3)", "Install"],
+            ["#site-nav .link:nth-of-type(4)", "Docs"],
+            [".hero-statement", "Manage your Android, iOS, and Tizen devices from one browser workspace."],
+            [".hero-lead", "Share real devices with your team, control them live, and connect to parallel Appium or Automation API flows."],
+            [".btn-label-start", "Start installation"],
+            [".btn-label-demo", "Watch demo"],
+            [".hero-signals li:nth-of-type(1)", "Checksum verification"],
+            [".hero-signals li:nth-of-type(2)", "Digest-pinned image"],
+            [".hero-signals li:nth-of-type(3)", "Automatic rollback"],
+            ["#start .install-intro .eyebrow", "GitHub Release install"],
+            ["#start .install-intro h2", "Start in minutes without cloning the repository."],
+            ["#start .install-intro > p", "Public installs use release host tooling and the matched GHCR image that contains backend services and compiled web UI."],
+            ["#tab-full", "Android + iOS"],
+            ["#tab-android", "Android only"],
+            ["#start .install-step:nth-of-type(1) strong", "Prepare host applications"],
+            ["#start .install-step:nth-of-type(1) p", "Open Docker Desktop and wait until it is fully ready. If you use iOS, open Xcode once to complete first-run setup."],
+            ["#start .install-step:nth-of-type(2) strong", "Complete one-time WDA signing"],
+            ["#start .install-step:nth-of-type(2) p", "Enable Automatically manage signing in WebDriverAgentRunner and select your Team. Always edit the project under ~/.mercury-farm/current."],
+            ["#start .install-step:nth-of-type(3) strong", "Connect through local domain"],
+            ["#start .install-step:nth-of-type(3) p", "Use the domain or IP from mercury status and open https://<MERCURY_DOMAIN>."],
+            ["#start .lifecycle article:nth-of-type(1) span", "Update"],
+            ["#start .lifecycle article:nth-of-type(2) span", "Rollback"],
+            ["#start .lifecycle article:nth-of-type(3) span", "Observe"],
+            [".cta-section .eyebrow", "Your infrastructure, your real devices"],
+            [".cta-section h2", "Run your real-device lab inside your own network."],
+            [".cta-section .cta-band > div > p", "Backend and CLI are Apache 2.0 licensed. Compiled web UI ships in release images; UI source remains proprietary."],
+            [".btn-label-open-release", "Open latest release"],
+            [".btn.btn-secondary", "Support / Issues"],
+            [".footer-col:nth-of-type(1) h2", "Project"],
+            [".footer-col:nth-of-type(2) h2", "Docs"],
+            [".footer-col:nth-of-type(3) h2", "Platforms"],
+            [".footer-col:nth-of-type(1) a:nth-of-type(1)", "GitHub Repository"],
+            [".footer-col:nth-of-type(1) a:nth-of-type(2)", "Latest Release"],
+            [".footer-col:nth-of-type(2) a:nth-of-type(1)", "Index"],
+            [".footer-brand p", "A browser-based, self-hosted device lab on macOS for Android, iOS, and Tizen real devices."]
+          ],
+          attrs: [
+            ["#site-nav", "aria-label", "Primary navigation"],
+            [".hero-signals", "aria-label", "Deployment signals"],
+            [".menu-toggle", "aria-label", "Open menu"],
+            [".menu-toggle", "title", "Open menu"],
+            [".copy-button", "title", "Copy active installation commands"]
+          ]
+        },
+        tr: {
+          title: "Mercury Device Farm | Android, iOS ve Tizen Cihaz Laboratuvarı",
+          description: "Android, iOS ve Tizen gerçek cihazlarını tarayıcıdan yönetin; Appium ve Automation API ile paralel testleri kendi macOS altyapınızda çalıştırın.",
+          ogDescription: "Kendi altyapınızda çalışan, tarayıcı tabanlı gerçek cihaz laboratuvarı.",
+          openMenu: "Menüyü aç",
+          closeMenu: "Menüyü kapat",
+          copyIdle: "Kopyala",
+          copyOk: "Kopyalandı",
+          copyFail: "Kopyalanamadı",
+          text: [
+            [".skip-link", "İçeriğe geç"],
+            ["#site-nav .link:nth-of-type(1)", "Ürün"],
+            ["#site-nav .link:nth-of-type(2)", "Yetenekler"],
+            ["#site-nav .link:nth-of-type(3)", "Kurulum"],
+            ["#site-nav .link:nth-of-type(4)", "Dokümanlar"],
+            [".hero-statement", "Android, iOS ve Tizen cihazlarınızı tek tarayıcıdan yönetin."],
+            [".hero-lead", "Gerçek cihazları ekibinizle paylaşın, canlı kontrol edin ve Appium ya da Automation API üzerinden paralel test akışlarına bağlayın."],
+            [".btn-label-start", "Kurulumu başlat"],
+            [".btn-label-demo", "Demoyu izle"],
+            [".hero-signals li:nth-of-type(1)", "Checksum doğrulama"],
+            [".hero-signals li:nth-of-type(2)", "Digest ile sabitlenen imaj"],
+            [".hero-signals li:nth-of-type(3)", "Otomatik rollback"],
+            ["#start .install-intro .eyebrow", "GitHub Release kurulumu"],
+            ["#start .install-intro h2", "Repoyu klonlamadan dakikalar içinde başlayın."],
+            ["#start .install-intro > p", "Public kurulum, host araçlarını release paketinden getirir ve aynı sürüme ait derlenmiş backend ile web UI imajını GHCR üzerinden kullanır."],
+            ["#tab-full", "Android + iOS"],
+            ["#tab-android", "Yalnızca Android"],
+            ["#start .install-step:nth-of-type(1) strong", "Host uygulamalarını hazırlayın"],
+            ["#start .install-step:nth-of-type(1) p", "Docker Desktop'i açıp tamamen başlamasını bekleyin. iOS kullanıyorsanız Xcode'u da en az bir kez açıp ilk kurulumu tamamlayın."],
+            ["#start .install-step:nth-of-type(2) strong", "WDA imzasını tamamlayın"],
+            ["#start .install-step:nth-of-type(2) p", "WebDriverAgentRunner target'ında Automatically manage signing seçeneğini açıp Team belirleyin. Her zaman ~/.mercury-farm/current altındaki projeyi düzenleyin."],
+            ["#start .install-step:nth-of-type(3) strong", "Yerel domain üzerinden bağlanın"],
+            ["#start .install-step:nth-of-type(3) p", "mercury status çıktısındaki domain veya IP ile https://<MERCURY_DOMAIN> adresini açın."],
+            ["#start .lifecycle article:nth-of-type(1) span", "Güncelle"],
+            ["#start .lifecycle article:nth-of-type(2) span", "Geri dön"],
+            ["#start .lifecycle article:nth-of-type(3) span", "Gözlemle"],
+            [".cta-section .eyebrow", "Kendi altyapın, gerçek cihazların"],
+            [".cta-section h2", "Gerçek cihaz laboratuvarını kendi ağınızda çalıştırın."],
+            [".cta-section .cta-band > div > p", "Backend ve CLI Apache 2.0 lisanslıdır. Derlenmiş web arayüzü release imajıyla gelir; UI kaynak kodu özel ve yetkili erişime açıktır."],
+            [".btn-label-open-release", "Son release'i aç"],
+            [".btn.btn-secondary", "Destek / Issues"],
+            [".footer-col:nth-of-type(1) h2", "Proje"],
+            [".footer-col:nth-of-type(2) h2", "Dokümanlar"],
+            [".footer-col:nth-of-type(3) h2", "Platformlar"],
+            [".footer-col:nth-of-type(1) a:nth-of-type(1)", "GitHub Deposu"],
+            [".footer-col:nth-of-type(1) a:nth-of-type(2)", "Son Release"],
+            [".footer-col:nth-of-type(2) a:nth-of-type(1)", "İndeks"],
+            [".footer-brand p", "Android, iOS ve Tizen gerçek cihazları için macOS üzerinde çalışan, tarayıcı tabanlı ve self-hosted cihaz laboratuvarı."]
+          ],
+          attrs: [
+            ["#site-nav", "aria-label", "Ana navigasyon"],
+            [".hero-signals", "aria-label", "Dağıtım özellikleri"],
+            [".menu-toggle", "aria-label", "Menüyü aç"],
+            [".menu-toggle", "title", "Menüyü aç"],
+            [".copy-button", "title", "Aktif kurulum komutlarını kopyala"]
+          ]
+        }
+      };
+
+      const storageKey = "mercury_lang";
+      const readStored = () => {
+        try {
+          return localStorage.getItem(storageKey);
+        } catch {
+          return null;
+        }
+      };
+      const writeStored = (value) => {
+        try {
+          localStorage.setItem(storageKey, value);
+        } catch {
+          // Ignore storage errors in restricted contexts.
+        }
+      };
+
+      let currentLocale = readStored() || "en";
+      if (!localeData[currentLocale]) currentLocale = "en";
+
       const menuToggle = document.querySelector(".menu-toggle");
       const nav = document.querySelector("#site-nav");
+      const tabs = Array.from(document.querySelectorAll(".install-tab"));
+      const panels = Array.from(document.querySelectorAll(".install-panel"));
+      const copyButton = document.querySelector("[data-copy-active]");
+      const copyLabel = document.querySelector("[data-copy-label]");
+      const langButtons = Array.from(document.querySelectorAll(".lang-btn"));
+
+      const setText = (selector, value) => {
+        const node = document.querySelector(selector);
+        if (node) node.textContent = value;
+      };
+
+      const setAttr = (selector, attr, value) => {
+        const node = document.querySelector(selector);
+        if (node) node.setAttribute(attr, value);
+      };
 
       const setMenuOpen = (open) => {
         nav.classList.toggle("is-open", open);
         document.body.classList.toggle("menu-open", open);
         menuToggle.setAttribute("aria-expanded", String(open));
-        menuToggle.setAttribute("title", open ? "Menüyü kapat" : "Menüyü aç");
+        const text = open ? localeData[currentLocale].closeMenu : localeData[currentLocale].openMenu;
+        menuToggle.setAttribute("title", text);
+        menuToggle.setAttribute("aria-label", text);
+      };
+
+      const applyLocale = (locale) => {
+        currentLocale = localeData[locale] ? locale : "en";
+        writeStored(currentLocale);
+
+        const data = localeData[currentLocale];
+        document.documentElement.lang = currentLocale;
+        document.title = data.title;
+        setAttr('meta[name="description"]', "content", data.description);
+        setAttr('meta[property="og:description"]', "content", data.ogDescription);
+
+        data.text.forEach(([selector, value]) => setText(selector, value));
+        data.attrs.forEach(([selector, attr, value]) => setAttr(selector, attr, value));
+
+        copyLabel.textContent = data.copyIdle;
+        langButtons.forEach((button) => {
+          const active = button.dataset.lang === currentLocale;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") === "true");
       };
 
       menuToggle.addEventListener("click", () => {
@@ -808,10 +988,6 @@
         if (event.key === "Escape") setMenuOpen(false);
       });
 
-      const tabs = Array.from(document.querySelectorAll(".install-tab"));
-      const panels = Array.from(document.querySelectorAll(".install-panel"));
-      const copyLabel = document.querySelector("[data-copy-label]");
-
       const activateTab = (activeTab) => {
         const androidOnly = activeTab.id === "tab-android";
         tabs.forEach((tab) => {
@@ -825,7 +1001,7 @@
         document.querySelectorAll("[data-ios-only]").forEach((step) => {
           step.hidden = androidOnly;
         });
-        copyLabel.textContent = "Kopyala";
+        copyLabel.textContent = localeData[currentLocale].copyIdle;
       };
 
       tabs.forEach((tab, index) => {
@@ -843,14 +1019,11 @@
         });
       });
 
-      const copyButton = document.querySelector("[data-copy-active]");
       let copyResetTimer;
-
       copyButton.addEventListener("click", async () => {
         const activeCode = document.querySelector(".install-panel:not([hidden]) code");
         const value = activeCode.innerText.trim();
         let copied = false;
-
         try {
           if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(value);
@@ -869,13 +1042,20 @@
         } catch {
           copied = false;
         }
-
         window.clearTimeout(copyResetTimer);
-        copyLabel.textContent = copied ? "Kopyalandı" : "Kopyalanamadı";
+        copyLabel.textContent = copied ? localeData[currentLocale].copyOk : localeData[currentLocale].copyFail;
         copyResetTimer = window.setTimeout(() => {
-          copyLabel.textContent = "Kopyala";
+          copyLabel.textContent = localeData[currentLocale].copyIdle;
         }, 1800);
       });
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLocale(button.dataset.lang);
+        });
+      });
+
+      applyLocale(currentLocale);
     })();
   </script>
 

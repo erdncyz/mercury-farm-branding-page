@@ -200,6 +200,41 @@ img {
   height: 15px;
 }
 
+.lang-switch {
+  display: inline-flex;
+  padding: 3px;
+  background: rgba(21, 23, 19, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  align-items: center;
+  gap: 2px;
+}
+
+.lang-btn {
+  min-width: 36px;
+  height: 30px;
+  padding: 0 8px;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.lang-btn.is-active {
+  color: var(--white);
+  background: var(--ink);
+}
+
+.lang-btn:not(.is-active):hover {
+  color: var(--ink);
+  background: rgba(21, 23, 19, 0.08);
+}
+
 .menu-toggle {
   display: none;
   width: 42px;
@@ -1420,6 +1455,11 @@ img {
     justify-content: center;
   }
 
+  .lang-switch {
+    margin-top: 18px;
+    align-self: flex-start;
+  }
+
   .hero-premium {
     height: calc(100svh - 96px);
     min-height: 540px;
@@ -1508,6 +1548,11 @@ img {
   .nav-links {
     top: 64px;
     max-height: calc(100svh - 64px);
+  }
+
+  .lang-switch {
+    align-self: stretch;
+    justify-content: center;
   }
 
   .hero-premium {
