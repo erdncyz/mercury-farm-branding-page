@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mercury Device Farm — Android & iOS Gerçek Cihaz Laboratuvarı</title>
-  <meta name="description" content="Mercury Device Farm: Android ve iOS için tarayıcı tabanlı gerçek cihaz laboratuvarı. Tanıtım, dokümantasyon ve GitHub kaynaklarına buradan erişin." />
+  <title>Mercury Device Farm | Android, iOS ve Tizen Cihaz Laboratuvarı</title>
+  <meta name="description" content="Android, iOS ve Tizen gerçek cihazlarını tarayıcıdan yönetin; Appium ve Automation API ile paralel testleri kendi macOS altyapınızda çalıştırın." />
+  <meta name="theme-color" content="#151713" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mercury Device Farm" />
+  <meta property="og:description" content="Kendi altyapınızda çalışan, tarayıcı tabanlı gerçek cihaz laboratuvarı." />
+  <meta property="og:url" content="https://mercury-farm-brand.netlify.app/" />
+  <meta property="og:image" content="https://mercury-farm-brand.netlify.app/assets/device-inventory.jpg" />
+  <link rel="canonical" href="https://mercury-farm-brand.netlify.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <style>
     /* ───────── Reset & Base ───────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -407,278 +414,363 @@
       .cta-band { padding: 44px 22px; }
     }
   </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">İçeriğe geç</a>
 
-  <!-- ───────── Header ───────── -->
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="logo">
-        <span class="logo-mark">M</span>
-        Mercury Device Farm
+      <a href="#top" class="brand" aria-label="Mercury Device Farm ana sayfa">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span class="brand-copy"><strong>Mercury</strong><small>Device Farm</small></span>
       </a>
-      <nav class="nav-links">
-        <a href="#features" class="link">Özellikler</a>
-        <a href="#screens" class="link">Ekranlar</a>
-        <a href="#docs" class="link">Dokümanlar</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" title="Menüyü aç">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Ana navigasyon">
+        <a href="#product" class="link">Ürün</a>
+        <a href="#capabilities" class="link">Yetenekler</a>
         <a href="#start" class="link">Kurulum</a>
+        <a href="#docs" class="link">Dokümanlar</a>
         <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="nav-cta">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
           GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
       </nav>
     </div>
   </header>
 
-  <!-- ───────── Hero ───────── -->
-  <section class="hero" id="top">
-    <div class="hero-grid"></div>
-    <div class="container hero-inner">
-      <span class="badge">macOS • Android • iOS • Smart TV</span>
-      <h1>Tarayıcı tabanlı <span class="grad">gerçek cihaz</span> laboratuvarı</h1>
-      <p class="lead">
-        Mercury Device Farm, Android ve iOS cihazlarını tarayıcı üzerinden uzaktan kontrol etmenizi,
-        test etmenizi ve otomasyona bağlamanızı sağlayan açık kaynaklı bir cihaz çiftliğidir.
-      </p>
-      <div class="hero-actions">
-        <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-          GitHub'da Görüntüle
+  <main id="main-content">
+    <section class="hero-premium" id="top" aria-labelledby="hero-title">
+      <img class="hero-background" src="assets/device-inventory.jpg" alt="" width="2400" height="1280" fetchpriority="high" />
+      <div class="container" style="height:100%;">
+        <div class="hero-content">
+          <p class="product-kicker"><span class="status-dot" aria-hidden="true"></span>Self-hosted real-device lab</p>
+          <h1 id="hero-title">Mercury<br />Device Farm</h1>
+          <p class="hero-statement">Android, iOS ve Tizen cihazlarınızı tek tarayıcıdan yönetin.</p>
+          <p class="hero-lead">Gerçek cihazları ekibinizle paylaşın, canlı kontrol edin ve Appium ya da Automation API üzerinden paralel test akışlarına bağlayın.</p>
+          <div class="hero-actions">
+            <a href="#start" class="btn btn-primary">
+              Kurulumu başlat
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <a href="#demo" class="btn btn-ghost">
+              Demoyu izle
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </a>
+          </div>
+          <ul class="hero-signals" aria-label="Dağıtım özellikleri">
+            <li>Checksum doğrulama</li>
+            <li>Digest ile sabitlenen imaj</li>
+            <li>Otomatik rollback</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Platform kapsamı">
+      <div class="container proof-grid">
+        <div class="proof-item"><strong>Android + iOS</strong><span>Canlı ekran ve uzaktan kontrol</span></div>
+        <div class="proof-item"><strong>Appium + API</strong><span>Programatik otomasyon yüzeyi</span></div>
+        <div class="proof-item"><strong>macOS host</strong><span>iOS için yerel Xcode araçları</span></div>
+        <div class="proof-item"><strong>EN + TR</strong><span>Çift dilli operasyon rehberleri</span></div>
+      </div>
+    </section>
+
+    <section class="section-premium section-white" id="product">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Ürün deneyimi</p>
+          <div>
+            <h2>Cihaz envanterinden canlı kontrole, tek çalışma alanı.</h2>
+            <p>Ekibiniz bağlı cihazları ortak bir envanterde görür, uygun cihazı açar ve fiziksel olarak başında olmadan gerçek ekranla etkileşir.</p>
+          </div>
+        </div>
+
+        <figure class="product-stage">
+          <div class="window-bar" aria-hidden="true">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-address">https://&lt;MERCURY_DOMAIN&gt;/devices</span>
+          </div>
+          <img src="assets/device-inventory.jpg" alt="Mercury Device Farm cihaz envanteri ekranı" width="2400" height="1280" loading="lazy" />
+          <figcaption><span>Tek merkezden cihaz görünürlüğü</span><span class="caption-meta">Durum, platform ve erişim bilgileri aynı görünümde</span></figcaption>
+        </figure>
+
+        <div class="product-detail-grid">
+          <article class="product-shot">
+            <div class="shot-media">
+              <img src="assets/android-remote.jpg" alt="Mercury Android uzaktan kontrol ekranı" width="2400" height="1283" loading="lazy" />
+            </div>
+            <header>
+              <span class="shot-number">01</span>
+              <div><h3>Android kontrol yüzeyi</h3><p>Bağlı Android cihazın canlı ekranını tarayıcıya taşıyın; ekiplerin uzaktan inceleme ve manuel test akışlarını tek oturumdan yürütmesini sağlayın.</p></div>
+            </header>
+          </article>
+          <article class="product-shot">
+            <div class="shot-media">
+              <img src="assets/ios-remote.jpg" alt="Mercury iOS uzaktan kontrol ekranı" width="2400" height="1277" loading="lazy" />
+            </div>
+            <header>
+              <span class="shot-number">02</span>
+              <div><h3>iOS kontrol yüzeyi</h3><p>macOS üzerindeki yerel iOS provider ve WebDriverAgent ile iPhone ve iPad cihazlarını aynı tarayıcı deneyimine dahil edin.</p></div>
+            </header>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-premium capabilities-section" id="capabilities">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Yetenekler</p>
+          <div>
+            <h2>Manuel kontrolden CI otomasyonuna uzanan tek altyapı.</h2>
+            <p>Mercury yalnızca ekran yayınlamaz. Cihaz erişimini, test otomasyonunu ve sürüm operasyonlarını aynı self-hosted sistemde birleştirir.</p>
+          </div>
+        </div>
+
+        <div class="capability-list">
+          <article class="capability-row">
+            <span class="capability-number">01</span>
+            <h3>Gerçek cihaz erişimi</h3>
+            <div class="capability-copy">
+              <p>Android ve iOS cihazlarını tarayıcıdan görüntüleyin ve uzaktan yönetin. Tizen tabanlı Smart TV cihazlarını ayrıntılı sağlayıcı rehberiyle laboratuvara ekleyin.</p>
+              <ul class="capability-tags"><li>Android</li><li>iOS</li><li>Tizen</li><li>Canlı kontrol</li></ul>
+            </div>
+          </article>
+          <article class="capability-row">
+            <span class="capability-number">02</span>
+            <h3>Test otomasyonu</h3>
+            <div class="capability-copy">
+              <p>Mevcut Appium testlerinizi Mercury cihazlarına yönlendirin veya Automation API üzerinden cihazları programatik kullanın. Birden fazla cihazda paralel yürütme akışları kurun.</p>
+              <ul class="capability-tags"><li>Appium</li><li>Automation API</li><li>Parallel execution</li></ul>
+            </div>
+          </article>
+          <article class="capability-row">
+            <span class="capability-number">03</span>
+            <h3>Self-hosted operasyon</h3>
+            <div class="capability-copy">
+              <p>Backend servisleri ve derlenmiş web arayüzü Docker üzerinde çalışır; iOS provider Xcode araçlarına erişebilmek için macOS host üzerinde kalır. Dinamik domain algılama yerel ağ erişimini sadeleştirir.</p>
+              <ul class="capability-tags"><li>Docker Compose</li><li>macOS provider</li><li>Dynamic domain</li><li>Logs</li></ul>
+            </div>
+          </article>
+          <article class="capability-row">
+            <span class="capability-number">04</span>
+            <h3>Kontrollü sürüm yaşam döngüsü</h3>
+            <div class="capability-copy">
+              <p>Kurucu release arşivini checksum ile doğrular ve Docker imajını değişmez digest ile sabitler. Güncelleme sonrası servis ve UI sağlık kontrolleri başarısız olursa önceki host sürümü ve stack otomatik geri yüklenir.</p>
+              <ul class="capability-tags"><li>Checksum</li><li>Digest pinning</li><li>Health checks</li><li>Rollback</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="architecture-flow" aria-label="Mercury çalışma akışı">
+          <article class="flow-node"><span>İstemci</span><h4>Tarayıcı</h4><p>Cihaz envanteri, canlı kontrol ve yönetim ekranları.</p></article>
+          <article class="flow-node"><span>Kontrol düzlemi</span><h4>Mercury servisleri</h4><p>API, kullanıcı erişimi, cihaz durumu ve iş akışları.</p></article>
+          <article class="flow-node"><span>Sağlayıcı katmanı</span><h4>Android / iOS provider</h4><p>ADB, usbmuxd, Xcode ve WebDriverAgent bağlantıları.</p></article>
+          <article class="flow-node"><span>Laboratuvar</span><h4>Fiziksel cihazlar</h4><p>Android, iPhone, iPad ve Tizen Smart TV cihazları.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-premium demo-section" id="demo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Ürün demosu</p>
+          <div><h2>Mercury'yi gerçek bir akışta izleyin.</h2><p>Cihaz listesinden uzaktan kontrol deneyimine kadar temel kullanım yolculuğunu kısa ürün demosunda görün.</p></div>
+        </div>
+        <a class="video-wrap" href="https://www.youtube.com/watch?v=ZHmtFVSZbqM" target="_blank" rel="noopener" aria-label="Mercury Device Farm ürün demosunu YouTube'da aç">
+          <img src="assets/demo-poster.jpg" alt="Mercury Device Farm demo videosu önizleme görseli" width="1600" height="900" loading="lazy" />
+          <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </a>
-        <a href="#docs" class="btn btn-ghost">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          Dokümanları Keşfet
-        </a>
       </div>
-      <div class="platform-tags">
-        <span>Uzaktan Kontrol</span>
-        <span>Paralel Çalıştırma</span>
-        <span>Appium Entegrasyonu</span>
-        <span>Otomasyon API</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ───────── Stats ───────── -->
-  <div class="container stats">
-    <div class="stats-grid">
-      <div class="stat"><div class="num">2</div><div class="label">Platform (Android & iOS)</div></div>
-      <div class="stat"><div class="num">12+</div><div class="label">Dokümantasyon Rehberi</div></div>
-      <div class="stat"><div class="num">EN / TR</div><div class="label">Çift Dilli Dokümanlar</div></div>
-      <div class="stat"><div class="num">Apache 2.0</div><div class="label">Açık Kaynak Lisans</div></div>
-    </div>
-  </div>
-
-  <!-- ───────── Features ───────── -->
-  <section class="section" id="features">
-    <div class="container text-center">
-      <p class="eyebrow">Neler Yapabilir?</p>
-      <h2 class="section-title">Cihaz laboratuvarınız için her şey tek yerde</h2>
-      <p class="section-sub">Gerçek cihazları tarayıcıdan yönetin, test ekiplerinizle paylaşın ve otomasyon hattınıza bağlayın.</p>
-
-      <div class="features-grid" style="text-align:left;">
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
-          <h3>Uzaktan Cihaz Kontrolü</h3>
-          <p>Android ve iOS cihazlarını tarayıcı üzerinden canlı ekran ile uzaktan kontrol edin.</p>
+    <section class="section-premium docs-section" id="docs">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Dokümantasyon</p>
+          <div><h2>Kurulumdan otomasyona, operasyon rehberleri hazır.</h2><p>Başlangıç, mimari, Appium, API, iOS ve sorun giderme dokümanları İngilizce ve Türkçe içeriklerle GitHub'da sürümle birlikte tutulur.</p></div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div>
-          <h3>Paralel Çalıştırma</h3>
-          <p>Birden fazla cihaz üzerinde aynı anda test koşturarak süreçlerinizi hızlandırın.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <h3>Appium & Otomasyon API</h3>
-          <p>Appium entegrasyonu ve otomasyon API'si ile mevcut test altyapınıza kolayca bağlanın.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <h3>Docker ile Kurulum</h3>
-          <p>Docker Compose tabanlı stack ile tek komutla servisleri ayağa kaldırın.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <h3>Smart TV (Tizen) Desteği</h3>
-          <p>Mobil cihazların yanı sıra Smart TV platformları için de rehberli destek.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Güvenli & Açık Kaynak</h3>
-          <p>Apache 2.0 lisanslı backend ve CLI ile şeffaf, denetlenebilir bir altyapı.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ───────── Screenshots → README ───────── -->
-  <section class="section" id="screens" style="background:var(--white);">
-    <div class="container text-center">
-      <p class="eyebrow">Arayüz</p>
-      <h2 class="section-title">Ekran görüntülerinin tamamı README'de</h2>
-      <p class="section-sub">Giriş ekranı, cihazlar sayfası ve Android/iOS uzaktan kontrol görsellerini güncel hâliyle GitHub README üzerinden inceleyin.</p>
-      <div style="margin-top:36px;">
-        <a href="https://github.com/erdncyz/mercury-farm/blob/main/README.md#readme" target="_blank" rel="noopener" class="btn btn-dark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          README'deki Ekran Görüntüleri
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── Demo Video ───────── -->
-  <section class="section">
-    <div class="container text-center">
-      <p class="eyebrow">Demo</p>
-      <h2 class="section-title">Mercury'yi çalışırken izleyin</h2>
-      <p class="section-sub">Kısa bir tanıtım videosu ile platformun yeteneklerine göz atın.</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/ZHmtFVSZbqM" title="Mercury Device Farm Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── Docs ───────── -->
-  <section class="section" id="docs" style="background:var(--white);">
-    <div class="container text-center">
-      <p class="eyebrow">Dokümantasyon</p>
-      <h2 class="section-title">Tüm rehberlere tek tıkla erişin</h2>
-      <p class="section-sub">Kurulumdan otomasyona, sorun gidermeden mimariye kadar her şey GitHub'da — EN + TR.</p>
-
-      <div class="docs-grid" style="text-align:left;">
+        <div class="docs-grid">
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/README.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-          <div><h4>README <span class="tag">BAŞLANGIÇ</span></h4><p>Projenin genel tanıtımı ve hızlı başlangıç.</p></div>
+          <div><h3>README <span class="tag">BAŞLANGIÇ</span></h3><p>Projenin genel tanıtımı ve hızlı başlangıç.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/index.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>
-          <div><h4>Dokümantasyon İndeksi</h4><p>Tüm rehberlerin listelendiği başlangıç noktası.</p></div>
+          <div><h3>Dokümantasyon İndeksi</h3><p>Tüm rehberlerin listelendiği başlangıç noktası.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/getting-started.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-          <div><h4>Getting Started</h4><p>İlk kurulum ve temel kullanım adımları.</p></div>
+          <div><h3>Getting Started</h3><p>İlk kurulum ve temel kullanım adımları.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/ios-setup.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/></svg></span>
-          <div><h4>iOS Setup</h4><p>iOS cihaz sağlayıcı kurulumu ve gereksinimler.</p></div>
+          <div><h3>iOS Setup</h3><p>iOS cihaz sağlayıcı kurulumu ve gereksinimler.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/parallel-execution.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>
-          <div><h4>Parallel Execution</h4><p>Çoklu cihazda paralel test çalıştırma rehberi.</p></div>
+          <div><h3>Parallel Execution</h3><p>Çoklu cihazda paralel test çalıştırma rehberi.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-setup.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
-          <div><h4>Appium Setup</h4><p>Appium kurulumu ve yapılandırma adımları.</p></div>
+          <div><h3>Appium Setup</h3><p>Appium kurulumu ve yapılandırma adımları.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-integration.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
-          <div><h4>Appium Integration</h4><p>Appium ile entegrasyon senaryoları.</p></div>
+          <div><h3>Appium Integration</h3><p>Appium ile entegrasyon senaryoları.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/automation-api.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
-          <div><h4>Automation API</h4><p>Otomasyon API'si ile programatik kullanım.</p></div>
+          <div><h3>Automation API</h3><p>Otomasyon API'si ile programatik kullanım.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/API.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
-          <div><h4>API Reference</h4><p>Uç noktalar ve istek/yanıt detayları.</p></div>
+          <div><h3>API Reference</h3><p>Uç noktalar ve istek/yanıt detayları.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/smart-tv-tizen.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg></span>
-          <div><h4>Smart TV (Tizen)</h4><p>Tizen tabanlı Smart TV detaylı rehberi.</p></div>
+          <div><h3>Smart TV (Tizen)</h3><p>Tizen tabanlı Smart TV detaylı rehberi.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/architecture.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
-          <div><h4>Architecture <span class="tag">MİMARİ</span></h4><p>Sistem mimarisi (EN). TR için: mimari.md.</p></div>
+          <div><h3>Architecture <span class="tag">MİMARİ</span></h3><p>Sistem mimarisi (EN). TR için: mimari.md.</p></div>
         </a>
         <a class="doc-card" href="https://github.com/erdncyz/mercury-farm/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">
           <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div><h4>Troubleshooting</h4><p>Sık karşılaşılan sorunlar ve çözümleri.</p></div>
+          <div><h3>Troubleshooting</h3><p>Sık karşılaşılan sorunlar ve çözümleri.</p></div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── Quick Start ───────── -->
-  <section class="section" id="start">
-    <div class="container text-center">
-      <p class="eyebrow">Hızlı Başlangıç</p>
-      <h2 class="section-title">Birkaç komutla ayağa kaldırın</h2>
-      <p class="section-sub">macOS üzerinde hazır (prebuilt) Docker imajı ile Mercury'yi dakikalar içinde çalıştırın.</p>
-
-      <div class="qs-wrap">
-        <div style="text-align:left;">
-          <h3>Kurulum Akışı</h3>
-          <p>Web arayüzü özel (proprietary) olduğundan kaynaktan derlenmez; önerilen yöntem GHCR'deki hazır imajı çekmektir. Depoyu yalnızca compose dosyası, scriptler ve iOS sağlayıcı için klonlarsınız.</p>
-          <ul class="qs-list">
-            <li><span class="n">1</span> Gereksinimleri kurun (Docker, Node, adb, libimobiledevice, Xcode CLT)</li>
-            <li><span class="n">2</span> Depoyu klonlayın ve host araçlarını kurun (<code>npm ci</code>)</li>
-            <li><span class="n">3</span> Hazır imajı çekip stack'i başlatın, iOS sağlayıcıyı ayağa kaldırın</li>
-            <li><span class="n">4</span> Tarayıcıdan <code>https://&lt;MERCURY_DOMAIN&gt;</code> adresine gidin</li>
-          </ul>
         </div>
-        <div class="code-block"><span class="c-comment"># 1) Gereksinimler (macOS)</span>
-<span class="c-cmd">brew</span> install --cask docker
-<span class="c-cmd">brew</span> install node android-platform-tools libimobiledevice usbmuxd
-<span class="c-cmd">xcode-select</span> --install
-
-<span class="c-comment"># 2) Depoyu klonla ve host araçlarını kur</span>
-<span class="c-cmd">git</span> clone https://github.com/erdncyz/mercury-farm.git
-<span class="c-cmd">cd</span> mercury-farm
-<span class="c-cmd">npm</span> ci
-
-<span class="c-comment"># 3) Hazır imajı çek ve stack'i başlat</span>
-<span class="c-cmd">npm</span> run stack:up:image:macos
-<span class="c-cmd">./scripts/start-ios-provider.sh</span>
-
-<span class="c-comment"># 4) Arayüzü aç → https://&lt;MERCURY_DOMAIN&gt;</span></div>
+        <div class="docs-footer">
+          <a href="https://github.com/erdncyz/mercury-farm/tree/main/docs" target="_blank" rel="noopener" class="btn btn-dark">
+            Tüm dokümanları aç
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ───────── CTA ───────── -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="cta-band">
-        <span class="badge">Açık Kaynak</span>
-        <h2 style="margin-top:18px;">Projeyi GitHub'da keşfedin</h2>
-        <p>Kaynak kodu inceleyin, dokümanlara göz atın veya bir sorun bildirin.</p>
+    <section class="section-premium install-section" id="start">
+      <div class="container">
+        <div class="install-grid">
+          <div class="install-intro">
+            <p class="eyebrow">GitHub Release kurulumu</p>
+            <h2>Repoyu klonlamadan dakikalar içinde başlayın.</h2>
+            <p>Public kurulum, host araçlarını release paketinden getirir ve aynı sürüme ait derlenmiş backend ile web UI imajını GHCR üzerinden kullanır.</p>
+            <ul class="install-assurances">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Release arşivi indirilmeden önce checksum ile doğrulanır.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Docker imajı değişmez release digest'ine sabitlenir.</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Android-only kurulumda Node, Xcode ve iOS araçları gerekmez.</span></li>
+            </ul>
+          </div>
+
+          <div class="install-console">
+            <div class="console-header">
+              <div class="install-tabs" role="tablist" aria-label="Kurulum türü">
+                <button class="install-tab" id="tab-full" type="button" role="tab" aria-selected="true" aria-controls="panel-full">Android + iOS</button>
+                <button class="install-tab" id="tab-android" type="button" role="tab" aria-selected="false" aria-controls="panel-android" tabindex="-1">Yalnızca Android</button>
+              </div>
+              <button class="copy-button" type="button" data-copy-active title="Aktif kurulum komutlarını kopyala">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span data-copy-label>Kopyala</span>
+              </button>
+            </div>
+
+            <div class="install-panel" id="panel-full" role="tabpanel" aria-labelledby="tab-full">
+              <pre><code><span class="code-comment"># 1) macOS gereksinimleri</span>
+<span class="code-command">brew</span> install --cask docker
+<span class="code-command">brew</span> install --cask android-platform-tools
+<span class="code-command">brew</span> install node
+<span class="code-command">brew</span> install libimobiledevice usbmuxd
+<span class="code-command">xcode-select</span> --install
+
+<span class="code-comment"># 2) Son kararlı release'i kur ve başlat</span>
+<span class="code-command">curl</span> -fsSL https://github.com/erdncyz/mercury-farm/releases/latest/download/install.sh | bash
+<span class="code-command">~/.mercury-farm/mercury</span> up
+
+<span class="code-comment"># 3) iOS için WDA'yı bir kez imzala ve provider'ı kur</span>
+<span class="code-command">open</span> ~/.mercury-farm/current/WebDriverAgent/WebDriverAgent.xcodeproj
+<span class="code-command">~/.mercury-farm/mercury</span> ios-auto
+<span class="code-command">~/.mercury-farm/mercury</span> status</code></pre>
+            </div>
+
+            <div class="install-panel" id="panel-android" role="tabpanel" aria-labelledby="tab-android" hidden>
+              <pre><code><span class="code-comment"># 1) Android gereksinimleri</span>
+<span class="code-command">brew</span> install --cask docker
+<span class="code-command">brew</span> install --cask android-platform-tools
+
+<span class="code-comment"># 2) iOS bileşenleri olmadan kur</span>
+<span class="code-command">curl</span> -fsSL https://github.com/erdncyz/mercury-farm/releases/latest/download/install.sh | bash -s -- --android-only
+
+<span class="code-comment"># 3) Başlat ve doğrula</span>
+<span class="code-command">~/.mercury-farm/mercury</span> up
+<span class="code-command">~/.mercury-farm/mercury</span> status
+
+<span class="code-comment"># Arayüz: https://&lt;MERCURY_DOMAIN&gt;</span></code></pre>
+            </div>
+
+            <div class="install-steps">
+              <div class="install-step"><div><strong>Host uygulamalarını hazırlayın</strong><p>Docker Desktop'i açıp tamamen başlamasını bekleyin. iOS kullanıyorsanız Xcode'u da en az bir kez açıp ilk kurulumu tamamlayın.</p></div></div>
+              <div class="install-step" data-ios-only><div><strong>WDA imzasını tamamlayın</strong><p>WebDriverAgentRunner target'ında Automatically manage signing seçeneğini açıp Team belirleyin. Her zaman <code>~/.mercury-farm/current</code> altındaki projeyi düzenleyin.</p></div></div>
+              <div class="install-step"><div><strong>Yerel domain üzerinden bağlanın</strong><p><code>mercury status</code> çıktısındaki domain veya IP ile <code>https://&lt;MERCURY_DOMAIN&gt;</code> adresini açın.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle" aria-label="Sürüm yönetimi">
+          <article><span>Güncelle</span><h3><code>mercury update</code></h3><p>Host araçlarını, backend'i ve UI'yi birlikte yeniler; ayarlar ile MongoDB volume korunur.</p></article>
+          <article><span>Geri dön</span><h3><code>--version vX.Y.Z</code></h3><p>Kurucuyu belirli bir release sürümüyle çalıştırıp kontrollü şekilde önceki pakete dönün.</p></article>
+          <article><span>Gözlemle</span><h3><code>status / logs</code></h3><p>Servis sağlığını doğrulayın veya merkezi log akışını doğrudan CLI üzerinden izleyin.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-band">
+        <div>
+          <p class="eyebrow">Kendi altyapın, gerçek cihazların</p>
+          <h2>Gerçek cihaz laboratuvarını kendi ağınızda çalıştırın.</h2>
+          <p>Backend ve CLI Apache 2.0 lisanslıdır. Derlenmiş web arayüzü release imajıyla gelir; UI kaynak kodu özel ve yetkili erişime açıktır.</p>
+        </div>
         <div class="cta-actions">
-          <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener" class="btn btn-dark">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-            Depoyu Aç
+          <a href="https://github.com/erdncyz/mercury-farm/releases/latest" target="_blank" rel="noopener" class="btn btn-dark">
+            Son release'i aç
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
-          <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Sorun Bildir
-          </a>
+          <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener" class="btn btn-secondary">Destek / Issues</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ───────── Footer ───────── -->
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="logo"><span class="logo-mark">M</span> Mercury Device Farm</div>
-          <p>Android ve iOS için tarayıcı tabanlı gerçek cihaz laboratuvarı. macOS için optimize edilmiş, açık kaynaklı.</p>
+          <a href="#top" class="brand" aria-label="Mercury Device Farm ana sayfa">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span class="brand-copy"><strong>Mercury</strong><small>Device Farm</small></span>
+          </a>
+          <p>Android, iOS ve Tizen gerçek cihazları için macOS üzerinde çalışan, tarayıcı tabanlı ve self-hosted cihaz laboratuvarı.</p>
         </div>
         <div class="footer-cols">
           <div class="footer-col">
-            <h5>Proje</h5>
+            <h2>Proje</h2>
             <a href="https://github.com/erdncyz/mercury-farm" target="_blank" rel="noopener">GitHub Deposu</a>
-            <a href="https://github.com/erdncyz/mercury-farm/blob/main/README.md" target="_blank" rel="noopener">README</a>
+            <a href="https://github.com/erdncyz/mercury-farm/releases/latest" target="_blank" rel="noopener">Son Release</a>
             <a href="https://github.com/erdncyz/mercury-farm/issues" target="_blank" rel="noopener">Issues</a>
           </div>
           <div class="footer-col">
-            <h5>Dokümanlar</h5>
+            <h2>Dokümanlar</h2>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/index.md" target="_blank" rel="noopener">İndeks</a>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Getting Started</a>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/troubleshooting.md" target="_blank" rel="noopener">Troubleshooting</a>
           </div>
           <div class="footer-col">
-            <h5>Platformlar</h5>
+            <h2>Platformlar</h2>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/ios-setup.md" target="_blank" rel="noopener">iOS</a>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/smart-tv-tizen.md" target="_blank" rel="noopener">Smart TV (Tizen)</a>
             <a href="https://github.com/erdncyz/mercury-farm/blob/main/docs/appium-setup.md" target="_blank" rel="noopener">Appium</a>
@@ -686,11 +778,106 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Erdinç Yılmaz · Mercury Device Farm</span>
-        <span>Apache License 2.0 · Açık Kaynak</span>
+        <span>&copy; 2026 Erdinç Yılmaz. Mercury Device Farm.</span>
+        <span>Backend &amp; CLI: Apache 2.0 · Web UI: Proprietary</span>
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("#site-nav");
+
+      const setMenuOpen = (open) => {
+        nav.classList.toggle("is-open", open);
+        document.body.classList.toggle("menu-open", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute("title", open ? "Menüyü kapat" : "Menüyü aç");
+      };
+
+      menuToggle.addEventListener("click", () => {
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+      });
+
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMenuOpen(false));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setMenuOpen(false);
+      });
+
+      const tabs = Array.from(document.querySelectorAll(".install-tab"));
+      const panels = Array.from(document.querySelectorAll(".install-panel"));
+      const copyLabel = document.querySelector("[data-copy-label]");
+
+      const activateTab = (activeTab) => {
+        const androidOnly = activeTab.id === "tab-android";
+        tabs.forEach((tab) => {
+          const active = tab === activeTab;
+          tab.setAttribute("aria-selected", String(active));
+          tab.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.id !== activeTab.getAttribute("aria-controls");
+        });
+        document.querySelectorAll("[data-ios-only]").forEach((step) => {
+          step.hidden = androidOnly;
+        });
+        copyLabel.textContent = "Kopyala";
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => activateTab(tab));
+        tab.addEventListener("keydown", (event) => {
+          if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+          event.preventDefault();
+          let nextIndex = index;
+          if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+          if (event.key === "Home") nextIndex = 0;
+          if (event.key === "End") nextIndex = tabs.length - 1;
+          tabs[nextIndex].focus();
+          activateTab(tabs[nextIndex]);
+        });
+      });
+
+      const copyButton = document.querySelector("[data-copy-active]");
+      let copyResetTimer;
+
+      copyButton.addEventListener("click", async () => {
+        const activeCode = document.querySelector(".install-panel:not([hidden]) code");
+        const value = activeCode.innerText.trim();
+        let copied = false;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(value);
+            copied = true;
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = value;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            copied = document.execCommand("copy");
+            textarea.remove();
+          }
+        } catch {
+          copied = false;
+        }
+
+        window.clearTimeout(copyResetTimer);
+        copyLabel.textContent = copied ? "Kopyalandı" : "Kopyalanamadı";
+        copyResetTimer = window.setTimeout(() => {
+          copyLabel.textContent = "Kopyala";
+        }, 1800);
+      });
+    })();
+  </script>
 
 </body>
 </html>
