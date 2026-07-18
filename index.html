@@ -450,7 +450,7 @@
       <img class="hero-background" src="assets/device-inventory.jpg" alt="" width="2400" height="1280" fetchpriority="high" />
       <div class="container" style="height:100%;">
         <div class="hero-content">
-          <p class="product-kicker"><span class="status-dot" aria-hidden="true"></span>Self-hosted real-device lab</p>
+          <p class="product-kicker"><span class="status-dot" aria-hidden="true"></span><span class="kicker-text">Self-hosted real-device lab</span></p>
           <h1 id="hero-title">Mercury<br />Device Farm</h1>
           <p class="hero-statement">Android, iOS ve Tizen cihazlarınızı tek tarayıcıdan yönetin.</p>
           <p class="hero-lead">Gerçek cihazları ekibinizle paylaşın, canlı kontrol edin ve Appium ya da Automation API üzerinden paralel test akışlarına bağlayın.</p>
@@ -684,36 +684,36 @@
             </div>
 
             <div class="install-panel" id="panel-full" role="tabpanel" aria-labelledby="tab-full">
-              <pre><code><span class="code-comment"># 1) macOS gereksinimleri</span>
+              <pre><code><span class="code-comment" id="comment-full-req"># 1) macOS gereksinimleri</span>
 <span class="code-command">brew</span> install --cask docker
 <span class="code-command">brew</span> install --cask android-platform-tools
 <span class="code-command">brew</span> install node
 <span class="code-command">brew</span> install libimobiledevice usbmuxd
 <span class="code-command">xcode-select</span> --install
 
-<span class="code-comment"># 2) Son kararlı release'i kur ve başlat</span>
+<span class="code-comment" id="comment-full-install"># 2) Son kararlı release'i kur ve başlat</span>
 <span class="code-command">curl</span> -fsSL https://github.com/erdncyz/mercury-farm/releases/latest/download/install.sh | bash
 <span class="code-command">~/.mercury-farm/mercury</span> up
 
-<span class="code-comment"># 3) iOS için WDA'yı bir kez imzala ve provider'ı kur</span>
+<span class="code-comment" id="comment-full-wda"># 3) iOS için WDA'yı bir kez imzala ve provider'ı kur</span>
 <span class="code-command">open</span> ~/.mercury-farm/current/WebDriverAgent/WebDriverAgent.xcodeproj
 <span class="code-command">~/.mercury-farm/mercury</span> ios-auto
 <span class="code-command">~/.mercury-farm/mercury</span> status</code></pre>
             </div>
 
             <div class="install-panel" id="panel-android" role="tabpanel" aria-labelledby="tab-android" hidden>
-              <pre><code><span class="code-comment"># 1) Android gereksinimleri</span>
+              <pre><code><span class="code-comment" id="comment-android-req"># 1) Android gereksinimleri</span>
 <span class="code-command">brew</span> install --cask docker
 <span class="code-command">brew</span> install --cask android-platform-tools
 
-<span class="code-comment"># 2) iOS bileşenleri olmadan kur</span>
+<span class="code-comment" id="comment-android-install"># 2) iOS bileşenleri olmadan kur</span>
 <span class="code-command">curl</span> -fsSL https://github.com/erdncyz/mercury-farm/releases/latest/download/install.sh | bash -s -- --android-only
 
-<span class="code-comment"># 3) Başlat ve doğrula</span>
+<span class="code-comment" id="comment-android-start"># 3) Başlat ve doğrula</span>
 <span class="code-command">~/.mercury-farm/mercury</span> up
 <span class="code-command">~/.mercury-farm/mercury</span> status
 
-<span class="code-comment"># Arayüz: https://&lt;MERCURY_DOMAIN&gt;</span></code></pre>
+<span class="code-comment" id="comment-android-ui"># Arayüz: https://&lt;MERCURY_DOMAIN&gt;</span></code></pre>
             </div>
 
             <div class="install-steps">
@@ -838,14 +838,96 @@
             [".footer-col:nth-of-type(1) a:nth-of-type(1)", "GitHub Repository"],
             [".footer-col:nth-of-type(1) a:nth-of-type(2)", "Latest Release"],
             [".footer-col:nth-of-type(2) a:nth-of-type(1)", "Index"],
-            [".footer-brand p", "A browser-based, self-hosted device lab on macOS for Android, iOS, and Tizen real devices."]
+            [".footer-brand p", "A browser-based, self-hosted device lab on macOS for Android, iOS, and Tizen real devices."],
+            [".product-kicker .kicker-text", "Self-hosted real-device lab"],
+            [".proof-item:nth-of-type(1) span", "Live screen and remote control"],
+            [".proof-item:nth-of-type(2) span", "Programmatic automation interface"],
+            [".proof-item:nth-of-type(3) span", "Native Xcode tools for iOS"],
+            [".proof-item:nth-of-type(4) span", "Bilingual operation guides"],
+            ["#product .eyebrow", "Product experience"],
+            ["#product .section-heading h2", "Single workspace, from device inventory to live control."],
+            ["#product .section-heading p:not(.eyebrow)", "Your team sees connected devices in a shared inventory, opens any available device, and interacts with the real screen without being physically present."],
+            ["#product figcaption span:not(.caption-meta)", "Centralized device visibility"],
+            ["#product figcaption .caption-meta", "Status, platform, and access details in a single view"],
+            ["#product .product-detail-grid article:nth-of-type(1) h3", "Android control interface"],
+            ["#product .product-detail-grid article:nth-of-type(1) p", "Bring the live screen of connected Android devices to your browser; enable teams to run remote inspections and manual test flows in a single session."],
+            ["#product .product-detail-grid article:nth-of-type(2) h3", "iOS control interface"],
+            ["#product .product-detail-grid article:nth-of-type(2) p", "Include iPhone and iPad devices in the same browser experience with local iOS providers and WebDriverAgent on macOS."],
+            ["#capabilities .eyebrow", "Capabilities"],
+            ["#capabilities .section-heading h2", "A single infrastructure spanning from manual control to CI automation."],
+            ["#capabilities .section-heading p:not(.eyebrow)", "Mercury does not just stream screens. It integrates device access, test automation, and release operations into the same self-hosted system."],
+            ["#capabilities .capability-row:nth-of-type(1) h3", "Real device access"],
+            ["#capabilities .capability-row:nth-of-type(1) p", "View and remotely manage Android and iOS devices from your browser. Add Tizen-based Smart TVs to the lab with a detailed provider guide."],
+            ["#capabilities .capability-row:nth-of-type(1) .capability-tags li:nth-of-type(4)", "Live control"],
+            ["#capabilities .capability-row:nth-of-type(2) h3", "Test automation"],
+            ["#capabilities .capability-row:nth-of-type(2) p", "Route your existing Appium tests to Mercury devices or use devices programmatically via the Automation API. Set up parallel execution flows across multiple devices."],
+            ["#capabilities .capability-row:nth-of-type(3) h3", "Self-hosted operations"],
+            ["#capabilities .capability-row:nth-of-type(3) p", "Backend services and the compiled web interface run on Docker; the iOS provider remains on the macOS host to access Xcode tools. Dynamic domain detection simplifies local network access."],
+            ["#capabilities .capability-row:nth-of-type(4) h3", "Controlled release lifecycle"],
+            ["#capabilities .capability-row:nth-of-type(4) p", "The installer verifies the release archive with a checksum and pins the Docker image with an immutable digest. If service or UI health checks fail post-update, the previous host version and stack are automatically restored."],
+            ["#capabilities .flow-node:nth-of-type(1) span", "Client"],
+            ["#capabilities .flow-node:nth-of-type(1) h4", "Browser"],
+            ["#capabilities .flow-node:nth-of-type(1) p", "Device inventory, live control, and management screens."],
+            ["#capabilities .flow-node:nth-of-type(2) span", "Control plane"],
+            ["#capabilities .flow-node:nth-of-type(2) h4", "Mercury services"],
+            ["#capabilities .flow-node:nth-of-type(2) p", "API, user access, device status, and workflows."],
+            ["#capabilities .flow-node:nth-of-type(3) span", "Provider layer"],
+            ["#capabilities .flow-node:nth-of-type(3) p", "ADB, usbmuxd, Xcode, and WebDriverAgent connections."],
+            ["#capabilities .flow-node:nth-of-type(4) span", "Lab"],
+            ["#capabilities .flow-node:nth-of-type(4) h4", "Physical devices"],
+            ["#capabilities .flow-node:nth-of-type(4) p", "Android, iPhone, iPad, and Tizen Smart TV devices."],
+            ["#demo .eyebrow", "Product demo"],
+            ["#demo .section-heading h2", "Watch Mercury in a real workflow."],
+            ["#demo .section-heading p:not(.eyebrow)", "See the core user journey from device list to remote control in this short product demo."],
+            ["#docs .eyebrow", "Documentation"],
+            ["#docs .section-heading h2", "From installation to automation, operation guides are ready."],
+            ["#docs .section-heading p:not(.eyebrow)", "Getting started, architecture, Appium, API, iOS, and troubleshooting docs are maintained on GitHub in English and Turkish along with the release."],
+            ["#docs .docs-grid a:nth-of-type(1) .tag", "GETTING STARTED"],
+            ["#docs .docs-grid a:nth-of-type(1) p", "General introduction and quick start."],
+            ["#docs .docs-grid a:nth-of-type(2) h3", "Documentation Index"],
+            ["#docs .docs-grid a:nth-of-type(2) p", "The starting point listing all guides."],
+            ["#docs .docs-grid a:nth-of-type(3) p", "First-time installation and basic usage steps."],
+            ["#docs .docs-grid a:nth-of-type(4) p", "iOS device provider setup and requirements."],
+            ["#docs .docs-grid a:nth-of-type(5) p", "Guide to running parallel tests across multiple devices."],
+            ["#docs .docs-grid a:nth-of-type(6) p", "Appium setup and configuration steps."],
+            ["#docs .docs-grid a:nth-of-type(7) p", "Integration scenarios with Appium."],
+            ["#docs .docs-grid a:nth-of-type(8) p", "Programmatic usage via the Automation API."],
+            ["#docs .docs-grid a:nth-of-type(9) p", "Endpoints and request/response details."],
+            ["#docs .docs-grid a:nth-of-type(10) p", "Detailed guide for Tizen-based Smart TVs."],
+            ["#docs .docs-grid a:nth-of-type(11) .tag", "ARCHITECTURE"],
+            ["#docs .docs-grid a:nth-of-type(11) p", "System architecture (EN). For TR: mimari.md."],
+            ["#docs .docs-grid a:nth-of-type(12) p", "Common issues and their solutions."],
+            [".btn-label-open-docs", "Open all docs"],
+            ["#start .install-assurances li:nth-of-type(1) span", "The release archive is verified with a checksum before downloading."],
+            ["#start .install-assurances li:nth-of-type(2) span", "The Docker image is pinned to an immutable release digest."],
+            ["#start .install-assurances li:nth-of-type(3) span", "Node, Xcode, and iOS tools are not required for Android-only installation."],
+            ["#comment-full-req", "# 1) macOS requirements"],
+            ["#comment-full-install", "# 2) Install and start the latest stable release"],
+            ["#comment-full-wda", "# 3) Sign WDA once for iOS and install the provider"],
+            ["#comment-android-req", "# 1) Android requirements"],
+            ["#comment-android-install", "# 2) Install without iOS components"],
+            ["#comment-android-start", "# 3) Start and verify"],
+            ["#comment-android-ui", "# Web UI: https://<MERCURY_DOMAIN>"],
+            ["#start .lifecycle article:nth-of-type(1) p", "Renews host tools, backend, and UI together; settings and MongoDB volume are preserved."],
+            ["#start .lifecycle article:nth-of-type(2) p", "Run the installer with a specific release version to gracefully roll back to the previous package."],
+            ["#start .lifecycle article:nth-of-type(3) p", "Verify service health or monitor the centralized log stream directly from the CLI."],
+            [".footer-col:nth-of-type(2) a:nth-of-type(2)", "Getting Started"],
+            [".footer-col:nth-of-type(2) a:nth-of-type(3)", "Troubleshooting"],
+            [".footer-col:nth-of-type(3) h2", "Platforms"],
+            [".footer-bottom span:nth-of-type(2)", "Backend & CLI: Apache 2.0 · Web UI: Proprietary"]
           ],
           attrs: [
             ["#site-nav", "aria-label", "Primary navigation"],
             [".hero-signals", "aria-label", "Deployment signals"],
             [".menu-toggle", "aria-label", "Open menu"],
             [".menu-toggle", "title", "Open menu"],
-            [".copy-button", "title", "Copy active installation commands"]
+            [".copy-button", "title", "Copy active installation commands"],
+            [".site-header .brand", "aria-label", "Mercury Device Farm home"],
+            [".site-footer .brand", "aria-label", "Mercury Device Farm home"],
+            [".lang-switch", "aria-label", "Language switcher"],
+            ["#demo .video-wrap", "aria-label", "Open Mercury Device Farm product demo on YouTube"],
+            ["#demo .video-wrap img", "alt", "Mercury Device Farm demo video preview image"],
+            ["#start .lifecycle", "aria-label", "Release management"]
           ]
         },
         tr: {
@@ -895,14 +977,96 @@
             [".footer-col:nth-of-type(1) a:nth-of-type(1)", "GitHub Deposu"],
             [".footer-col:nth-of-type(1) a:nth-of-type(2)", "Son Release"],
             [".footer-col:nth-of-type(2) a:nth-of-type(1)", "İndeks"],
-            [".footer-brand p", "Android, iOS ve Tizen gerçek cihazları için macOS üzerinde çalışan, tarayıcı tabanlı ve self-hosted cihaz laboratuvarı."]
+            [".footer-brand p", "Android, iOS ve Tizen gerçek cihazları için macOS üzerinde çalışan, tarayıcı tabanlı ve self-hosted cihaz laboratuvarı."],
+            [".product-kicker .kicker-text", "Kendi altyapınızda barındırılan gerçek cihaz laboratuvarı"],
+            [".proof-item:nth-of-type(1) span", "Canlı ekran ve uzaktan kontrol"],
+            [".proof-item:nth-of-type(2) span", "Programatik otomasyon yüzeyi"],
+            [".proof-item:nth-of-type(3) span", "iOS için yerel Xcode araçları"],
+            [".proof-item:nth-of-type(4) span", "Çift dilli operasyon rehberleri"],
+            ["#product .eyebrow", "Ürün deneyimi"],
+            ["#product .section-heading h2", "Cihaz envanterinden canlı kontrole, tek çalışma alanı."],
+            ["#product .section-heading p:not(.eyebrow)", "Ekibiniz bağlı cihazları ortak bir envanterde görür, uygun cihazı açar ve fiziksel olarak başında olmadan gerçek ekranla etkileşir."],
+            ["#product figcaption span:not(.caption-meta)", "Tek merkezden cihaz görünürlüğü"],
+            ["#product figcaption .caption-meta", "Durum, platform ve erişim bilgileri aynı görünümde"],
+            ["#product .product-detail-grid article:nth-of-type(1) h3", "Android kontrol yüzeyi"],
+            ["#product .product-detail-grid article:nth-of-type(1) p", "Bağlı Android cihazın canlı ekranını tarayıcıya taşıyın; ekiplerin uzaktan inceleme ve manuel test akışlarını tek oturumdan yürütmesini sağlayın."],
+            ["#product .product-detail-grid article:nth-of-type(2) h3", "iOS kontrol yüzeyi"],
+            ["#product .product-detail-grid article:nth-of-type(2) p", "macOS üzerindeki yerel iOS provider ve WebDriverAgent ile iPhone ve iPad cihazlarını aynı tarayıcı deneyimine dahil edin."],
+            ["#capabilities .eyebrow", "Yetenekler"],
+            ["#capabilities .section-heading h2", "Manuel kontrolden CI otomasyonuna uzanan tek altyapı."],
+            ["#capabilities .section-heading p:not(.eyebrow)", "Mercury yalnızca ekran yayınlamaz. Cihaz erişimini, test otomasyonunu ve sürüm operasyonlarını aynı self-hosted sistemde birleştirir."],
+            ["#capabilities .capability-row:nth-of-type(1) h3", "Gerçek cihaz erişimi"],
+            ["#capabilities .capability-row:nth-of-type(1) p", "Android ve iOS cihazlarını tarayıcıdan görüntüleyin ve uzaktan yönetin. Tizen tabanlı Smart TV cihazlarını ayrıntılı sağlayıcı rehberiyle laboratuvara ekleyin."],
+            ["#capabilities .capability-row:nth-of-type(1) .capability-tags li:nth-of-type(4)", "Canlı kontrol"],
+            ["#capabilities .capability-row:nth-of-type(2) h3", "Test otomasyonu"],
+            ["#capabilities .capability-row:nth-of-type(2) p", "Mevcut Appium testlerinizi Mercury cihazlarına yönlendirin veya Automation API üzerinden cihazları programatik kullanın. Birden fazla cihazda paralel yürütme akışları kurun."],
+            ["#capabilities .capability-row:nth-of-type(3) h3", "Self-hosted operasyon"],
+            ["#capabilities .capability-row:nth-of-type(3) p", "Backend servisleri ve derlenmiş web arayüzü Docker üzerinde çalışır; iOS provider Xcode araçlarına erişebilmek için macOS host üzerinde kalır. Dinamik domain algılama yerel ağ erişimini sadeleştirir."],
+            ["#capabilities .capability-row:nth-of-type(4) h3", "Kontrollü sürüm yaşam döngüsü"],
+            ["#capabilities .capability-row:nth-of-type(4) p", "Kurucu release arşivini checksum ile doğrular ve Docker imajını değişmez digest ile sabitler. Güncelleme sonrası servis ve UI sağlık kontrolleri başarısız olursa önceki host sürümü ve stack otomatik geri yüklenir."],
+            ["#capabilities .flow-node:nth-of-type(1) span", "İstemci"],
+            ["#capabilities .flow-node:nth-of-type(1) h4", "Tarayıcı"],
+            ["#capabilities .flow-node:nth-of-type(1) p", "Cihaz envanteri, canlı kontrol ve yönetim ekranları."],
+            ["#capabilities .flow-node:nth-of-type(2) span", "Kontrol düzlemi"],
+            ["#capabilities .flow-node:nth-of-type(2) h4", "Mercury servisleri"],
+            ["#capabilities .flow-node:nth-of-type(2) p", "API, kullanıcı erişimi, cihaz durumu ve iş akışları."],
+            ["#capabilities .flow-node:nth-of-type(3) span", "Sağlayıcı katmanı"],
+            ["#capabilities .flow-node:nth-of-type(3) p", "ADB, usbmuxd, Xcode ve WebDriverAgent bağlantıları."],
+            ["#capabilities .flow-node:nth-of-type(4) span", "Laboratuvar"],
+            ["#capabilities .flow-node:nth-of-type(4) h4", "Fiziksel cihazlar"],
+            ["#capabilities .flow-node:nth-of-type(4) p", "Android, iPhone, iPad ve Tizen Smart TV cihazları."],
+            ["#demo .eyebrow", "Ürün demosu"],
+            ["#demo .section-heading h2", "Mercury'yi gerçek bir akışta izleyin."],
+            ["#demo .section-heading p:not(.eyebrow)", "Cihaz listesinden uzaktan kontrol deneyimine kadar temel kullanım yolculuğunu kısa ürün demosunda görün."],
+            ["#docs .eyebrow", "Dokümantasyon"],
+            ["#docs .section-heading h2", "Kurulumdan otomasyona, operasyon rehberleri hazır."],
+            ["#docs .section-heading p:not(.eyebrow)", "Başlangıç, mimari, Appium, API, iOS ve sorun giderme dokümanları İngilizce ve Türkçe içeriklerle GitHub'da sürümle birlikte tutulur."],
+            ["#docs .docs-grid a:nth-of-type(1) .tag", "BAŞLANGIÇ"],
+            ["#docs .docs-grid a:nth-of-type(1) p", "Projenin genel tanıtımı ve hızlı başlangıç."],
+            ["#docs .docs-grid a:nth-of-type(2) h3", "Dokümantasyon İndeksi"],
+            ["#docs .docs-grid a:nth-of-type(2) p", "Tüm rehberlerin listelendiği başlangıç noktası."],
+            ["#docs .docs-grid a:nth-of-type(3) p", "İlk kurulum ve temel kullanım adımları."],
+            ["#docs .docs-grid a:nth-of-type(4) p", "iOS cihaz sağlayıcı kurulumu ve gereksinimler."],
+            ["#docs .docs-grid a:nth-of-type(5) p", "Çoklu cihazda paralel test çalıştırma rehberi."],
+            ["#docs .docs-grid a:nth-of-type(6) p", "Appium kurulumu ve yapılandırma adımları."],
+            ["#docs .docs-grid a:nth-of-type(7) p", "Appium ile entegrasyon senaryoları."],
+            ["#docs .docs-grid a:nth-of-type(8) p", "Otomasyon API'si ile programatik kullanım."],
+            ["#docs .docs-grid a:nth-of-type(9) p", "Uç noktalar ve istek/yanıt detayları."],
+            ["#docs .docs-grid a:nth-of-type(10) p", "Tizen tabanlı Smart TV detaylı rehberi."],
+            ["#docs .docs-grid a:nth-of-type(11) .tag", "MİMARİ"],
+            ["#docs .docs-grid a:nth-of-type(11) p", "Sistem mimarisi (EN). TR için: mimari.md."],
+            ["#docs .docs-grid a:nth-of-type(12) p", "Sık karşılaşılan sorunlar ve çözümleri."],
+            [".btn-label-open-docs", "Tüm dokümanları aç"],
+            ["#start .install-assurances li:nth-of-type(1) span", "Release arşivi indirilmeden önce checksum ile doğrulanır."],
+            ["#start .install-assurances li:nth-of-type(2) span", "Docker imajı değişmez release digest'ine sabitlenir."],
+            ["#start .install-assurances li:nth-of-type(3) span", "Android-only kurulumda Node, Xcode ve iOS araçları gerekmez."],
+            ["#comment-full-req", "# 1) macOS gereksinimleri"],
+            ["#comment-full-install", "# 2) Son kararlı release'i kur ve başlat"],
+            ["#comment-full-wda", "# 3) iOS için WDA'yı bir kez imzala ve provider'ı kur"],
+            ["#comment-android-req", "# 1) Android gereksinimleri"],
+            ["#comment-android-install", "# 2) iOS bileşenleri olmadan kur"],
+            ["#comment-android-start", "# 3) Başlat ve doğrula"],
+            ["#comment-android-ui", "# Arayüz: https://<MERCURY_DOMAIN>"],
+            ["#start .lifecycle article:nth-of-type(1) p", "Host araçlarını, backend'i ve UI'yi birlikte yeniler; ayarlar ile MongoDB volume korunur."],
+            ["#start .lifecycle article:nth-of-type(2) p", "Kurucuyu belirli bir release sürümüyle çalıştırıp kontrollü şekilde önceki pakete dönün."],
+            ["#start .lifecycle article:nth-of-type(3) p", "Servis sağlığını doğrulayın veya merkezi log akışını doğrudan CLI üzerinden izleyin."],
+            [".footer-col:nth-of-type(2) a:nth-of-type(2)", "Başlangıç"],
+            [".footer-col:nth-of-type(2) a:nth-of-type(3)", "Sorun Giderme"],
+            [".footer-col:nth-of-type(3) h2", "Platformlar"],
+            [".footer-bottom span:nth-of-type(2)", "Backend ve CLI: Apache 2.0 · Web Arayüzü: Özel Lisanslı"]
           ],
           attrs: [
             ["#site-nav", "aria-label", "Ana navigasyon"],
             [".hero-signals", "aria-label", "Dağıtım özellikleri"],
             [".menu-toggle", "aria-label", "Menüyü aç"],
             [".menu-toggle", "title", "Menüyü aç"],
-            [".copy-button", "title", "Aktif kurulum komutlarını kopyala"]
+            [".copy-button", "title", "Aktif kurulum komutlarını kopyala"],
+            [".site-header .brand", "aria-label", "Mercury Device Farm ana sayfa"],
+            [".site-footer .brand", "aria-label", "Mercury Device Farm ana sayfa"],
+            [".lang-switch", "aria-label", "Dil seçici"],
+            ["#demo .video-wrap", "aria-label", "Mercury Device Farm ürün demosunu YouTube'da aç"],
+            ["#demo .video-wrap img", "alt", "Mercury Device Farm demo videosu önizleme görseli"],
+            ["#start .lifecycle", "aria-label", "Sürüm yönetimi"]
           ]
         }
       };
